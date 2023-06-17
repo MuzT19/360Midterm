@@ -1,0 +1,3667 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--projecttitle--><title>WAKWAKKKKKKKKKInteractive Media</title><!--projecttitle-end-->
+		<!--projectdescription--><meta name="description" content="New 3Sixty Virtual Tour Project"><!--projectdescription-end-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+		
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		
+		<script src="imagedata.js"></script>
+		<script src="jquery.js"></script>
+		<script src="three.min.js"></script>
+		<script src="panolens.min.js"></script>
+		
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
+		
+		<style>
+		
+			
+						
+			/* SCROLLBAR STYLING */
+			/* width */
+			::-webkit-scrollbar {
+				width: 0.25em;
+				height: 0.25em;
+			}
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: #2c3643; 
+			}
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #0d9e59; 
+				transition: background .5s;
+			}
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: #00e075; 
+			}
+
+
+			html, body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: #000;
+				color; black;
+			}
+
+			a:link, a:visited{
+				color: #bdc3c7;	
+			}
+
+			.fullwrapper{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: black;
+			}
+			
+			#container {
+                width: 100%;
+                height: 100%;
+            }
+			
+			#tmp{
+				position: fixed;
+				top: 0;
+				left: 0; 
+				right: 0;
+				bottom: 0;
+				padding: 3em;
+				background-color: rgba(0,0,0,.5);
+				backdrop-filter: blur(5px);
+				display: none;
+			}
+		</style>
+	</head>
+	<body id="body">
+	    <div id="container" style="color: black;"></div>
+    	
+		
+		
+		<!--customhtml--><div class='customhotspot' id='A'><div onclick='chclickinfospotA0();' id='infospotA0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='B'><div onclick='chclickinfospotB0();' id='infospotB0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotB1();' id='infospotB1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='C'><div onclick='chclickinfospotC0();' id='infospotC0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotC1();' id='infospotC1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='D'><div onclick='chclickinfospotD0();' id='infospotD0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotD1();' id='infospotD1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='E'><div onclick='chclickinfospotE0();' id='infospotE0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotE1();' id='infospotE1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='F'><div onclick='chclickinfospotF0();' id='infospotF0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotF1();' id='infospotF1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='G'><div onclick='chclickinfospotG0();' id='infospotG0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotG1();' id='infospotG1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='H'><div onclick='chclickinfospotH0();' id='infospotH0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotH1();' id='infospotH1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='I'><div onclick='chclickinfospotI0();' id='infospotI0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotI1();' id='infospotI1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='J'><div onclick='chclickinfospotJ0();' id='infospotJ0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotJ1();' id='infospotJ1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='K'><div onclick='chclickinfospotK0();' id='infospotK0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotK1();' id='infospotK1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='L'><div onclick='chclickinfospotL0();' id='infospotL0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotL1();' id='infospotL1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='M'><div onclick='chclickinfospotM0();' id='infospotM0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotM1();' id='infospotM1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotM2();' id='infospotM2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='N'><div onclick='chclickinfospotN0();' id='infospotN0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotN1();' id='infospotN1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotN2();' id='infospotN2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='O'><div onclick='chclickinfospotO0();' id='infospotO0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotO1();' id='infospotO1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotO2();' id='infospotO2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='P'><div onclick='chclickinfospotP0();' id='infospotP0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Q'><div onclick='chclickinfospotQ0();' id='infospotQ0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotQ1();' id='infospotQ1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='R'><div onclick='chclickinfospotR0();' id='infospotR0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotR1();' id='infospotR1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotR2();' id='infospotR2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotR3();' id='infospotR3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='S'><div onclick='chclickinfospotS0();' id='infospotS0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotS1();' id='infospotS1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='T'><div onclick='chclickinfospotT0();' id='infospotT0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotT1();' id='infospotT1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='U'><div onclick='chclickinfospotU0();' id='infospotU0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotU1();' id='infospotU1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotU2();' id='infospotU2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='V'><div onclick='chclickinfospotV0();' id='infospotV0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotV1();' id='infospotV1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='W'><div onclick='chclickinfospotW0();' id='infospotW0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotW1();' id='infospotW1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='X'><div onclick='chclickinfospotX0();' id='infospotX0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotX1();' id='infospotX1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotX2();' id='infospotX2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotX3();' id='infospotX3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Y'><div onclick='chclickinfospotY0();' id='infospotY0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Z'><div onclick='chclickinfospotZ0();' id='infospotZ0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Aa'><div onclick='chclickinfospotAa0();' id='infospotAa0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAa1();' id='infospotAa1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAa2();' id='infospotAa2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAa3();' id='infospotAa3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ab'><div onclick='chclickinfospotAb0();' id='infospotAb0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAb1();' id='infospotAb1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAb2();' id='infospotAb2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ac'><div onclick='chclickinfospotAc0();' id='infospotAc0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAc1();' id='infospotAc1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAc2();' id='infospotAc2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ad'><div onclick='chclickinfospotAd0();' id='infospotAd0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAd1();' id='infospotAd1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAd2();' id='infospotAd2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAd3();' id='infospotAd3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ae'><div onclick='chclickinfospotAe0();' id='infospotAe0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAe1();' id='infospotAe1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAe2();' id='infospotAe2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Af'><div onclick='chclickinfospotAf0();' id='infospotAf0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAf1();' id='infospotAf1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAf2();' id='infospotAf2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ag'><div onclick='chclickinfospotAg0();' id='infospotAg0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAg1();' id='infospotAg1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAg2();' id='infospotAg2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ah'><div onclick='chclickinfospotAh0();' id='infospotAh0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAh1();' id='infospotAh1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAh2();' id='infospotAh2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ai'><div onclick='chclickinfospotAi0();' id='infospotAi0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAi1();' id='infospotAi1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAi2();' id='infospotAi2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Aj'><div onclick='chclickinfospotAj0();' id='infospotAj0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAj1();' id='infospotAj1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAj2();' id='infospotAj2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ak'><div onclick='chclickinfospotAk0();' id='infospotAk0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAk1();' id='infospotAk1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAk2();' id='infospotAk2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Al'><div onclick='chclickinfospotAl0();' id='infospotAl0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAl1();' id='infospotAl1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAl2();' id='infospotAl2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Am'><div onclick='chclickinfospotAm0();' id='infospotAm0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAm1();' id='infospotAm1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAm2();' id='infospotAm2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='An'><div onclick='chclickinfospotAn0();' id='infospotAn0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAn1();' id='infospotAn1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAn2();' id='infospotAn2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ao'><div onclick='chclickinfospotAo0();' id='infospotAo0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAo1();' id='infospotAo1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAo2();' id='infospotAo2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ap'><div onclick='chclickinfospotAp0();' id='infospotAp0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAp1();' id='infospotAp1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Aq'><div onclick='chclickinfospotAq0();' id='infospotAq0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAq1();' id='infospotAq1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAq2();' id='infospotAq2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAq3();' id='infospotAq3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ar'><div onclick='chclickinfospotAr0();' id='infospotAr0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAr1();' id='infospotAr1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAr2();' id='infospotAr2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAr3();' id='infospotAr3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='As'><div onclick='chclickinfospotAs0();' id='infospotAs0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAs1();' id='infospotAs1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAs2();' id='infospotAs2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='At'><div onclick='chclickinfospotAt0();' id='infospotAt0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAt1();' id='infospotAt1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Au'><div onclick='chclickinfospotAu0();' id='infospotAu0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAu1();' id='infospotAu1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Av'><div onclick='chclickinfospotAv0();' id='infospotAv0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAv1();' id='infospotAv1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAv2();' id='infospotAv2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Aw'><div onclick='chclickinfospotAw0();' id='infospotAw0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAw1();' id='infospotAw1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ax'><div onclick='chclickinfospotAx0();' id='infospotAx0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAx1();' id='infospotAx1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAx2();' id='infospotAx2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ay'><div onclick='chclickinfospotAy0();' id='infospotAy0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAy1();' id='infospotAy1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAy2();' id='infospotAy2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Az'><div onclick='chclickinfospotAz0();' id='infospotAz0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAz1();' id='infospotAz1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotAz2();' id='infospotAz2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Ba'><div onclick='chclickinfospotBa0();' id='infospotBa0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBa1();' id='infospotBa1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bb'><div onclick='chclickinfospotBb0();' id='infospotBb0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBb1();' id='infospotBb1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBb2();' id='infospotBb2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bc'><div onclick='chclickinfospotBc0();' id='infospotBc0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBc1();' id='infospotBc1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bd'><div onclick='chclickinfospotBd0();' id='infospotBd0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBd1();' id='infospotBd1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bdd'><div onclick='chclickinfospotBdd0();' id='infospotBdd0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBdd1();' id='infospotBdd1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBdd2();' id='infospotBdd2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bf'><div onclick='chclickinfospotBf0();' id='infospotBf0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBf1();' id='infospotBf1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bg'><div onclick='chclickinfospotBg0();' id='infospotBg0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBg1();' id='infospotBg1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBg2();' id='infospotBg2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBg3();' id='infospotBg3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bh'><div onclick='chclickinfospotBh0();' id='infospotBh0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bi'></div><div class='customhotspot' id='Bj'><div onclick='chclickinfospotBj0();' id='infospotBj0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBj1();' id='infospotBj1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBj2();' id='infospotBj2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bk'><div onclick='chclickinfospotBk0();' id='infospotBk0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBk1();' id='infospotBk1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBk2();' id='infospotBk2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bl'><div onclick='chclickinfospotBl0();' id='infospotBl0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBl1();' id='infospotBl1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bm'><div onclick='chclickinfospotBm0();' id='infospotBm0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBm1();' id='infospotBm1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bn'><div onclick='chclickinfospotBn0();' id='infospotBn0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bo'><div onclick='chclickinfospotBo0();' id='infospotBo0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBo1();' id='infospotBo1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bp'><div onclick='chclickinfospotBp0();' id='infospotBp0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBp1();' id='infospotBp1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bpp'><div onclick='chclickinfospotBpp0();' id='infospotBpp0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBpp1();' id='infospotBpp1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBpp2();' id='infospotBpp2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBpp3();' id='infospotBpp3' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows03.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bq'><div onclick='chclickinfospotBq0();' id='infospotBq0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBq1();' id='infospotBq1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Br'><div onclick='chclickinfospotBr0();' id='infospotBr0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBr1();' id='infospotBr1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBr2();' id='infospotBr2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bs'><div onclick='chclickinfospotBs0();' id='infospotBs0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBs1();' id='infospotBs1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bt'><div onclick='chclickinfospotBt0();' id='infospotBt0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBt1();' id='infospotBt1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bu'><div onclick='chclickinfospotBu0();' id='infospotBu0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBu1();' id='infospotBu1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bv'><div onclick='chclickinfospotBv0();' id='infospotBv0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBv1();' id='infospotBv1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bw'><div onclick='chclickinfospotBw0();' id='infospotBw0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBw1();' id='infospotBw1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBw2();' id='infospotBw2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bx'><div onclick='chclickinfospotBx0();' id='infospotBx0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBx1();' id='infospotBx1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBx2();' id='infospotBx2' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows04.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='By'><div onclick='chclickinfospotBy0();' id='infospotBy0' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows01.png' style='width: 64px; height: 64px;'></div><div onclick='chclickinfospotBy1();' id='infospotBy1' style='position: fixed; top: 0; left: 0; cursor: pointer;'><img src='customhotspots/Arrows02.png' style='width: 64px; height: 64px;'></div></div><div class='customhotspot' id='Bz'></div><div class='customhotspot' id='Bzz'></div><!--customhtml-end-->
+		
+		<div id="tmp">
+			<div style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
+			<div class="mediaclosebutton" onclick="hideTemp()"><i class="fa fa-times-circle"></i></div>
+		</div>
+
+		<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
+    		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
+    			<!--loadingtext-->Loading...<!--loadingtext-end-->
+    		</div>
+    	</div>
+		
+    	<script>
+			
+            var container = document.querySelector( '#container' );
+			/*panolens*/
+var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+/*panolens-end*/
+			
+			viewer.addUpdateCallback(function(){});
+			
+			/*panoramas*/
+var A = new PANOLENS.ImagePanorama( "panoramas/A.jpg" );
+			A.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			A.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			A.addEventListener('click', function(e){
+			});
+
+var infospotA0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotA0.position.set( 4958.95, -87.41, 586.96 );
+					infospotA0.visible = false;
+					A.add(infospotA0);
+infospotA0.addEventListener('click', function(){
+ChangePanorama('B');
+});
+viewer.add( A );
+var B = new PANOLENS.ImagePanorama( "panoramas/B.jpg" );
+			B.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			B.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			B.addEventListener('click', function(e){
+			});
+
+var infospotB0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotB0.position.set( 4991.34, -147.16, 54.88 );
+					infospotB0.visible = false;
+					B.add(infospotB0);
+infospotB0.addEventListener('click', function(){
+ChangePanorama('C');
+});
+var infospotB1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotB1.position.set( -4966.98, -459.81, 183.55 );
+					infospotB1.visible = false;
+					B.add(infospotB1);
+infospotB1.addEventListener('click', function(){
+ChangePanorama('A');
+});
+viewer.add( B );
+var C = new PANOLENS.ImagePanorama( "panoramas/C.jpg" );
+			C.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			C.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			C.addEventListener('click', function(e){
+			});
+
+var infospotC0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotC0.position.set( 4992.48, -95.06, 72.14 );
+					infospotC0.visible = false;
+					C.add(infospotC0);
+infospotC0.addEventListener('click', function(){
+ChangePanorama('D');
+});
+var infospotC1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotC1.position.set( -4983.84, -167.13, 183.07 );
+					infospotC1.visible = false;
+					C.add(infospotC1);
+infospotC1.addEventListener('click', function(){
+ChangePanorama('B');
+});
+viewer.add( C );
+var D = new PANOLENS.ImagePanorama( "panoramas/D.jpg" );
+			D.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			D.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			D.addEventListener('click', function(e){
+			});
+
+var infospotD0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotD0.position.set( 4984.30, -199.33, 150.05 );
+					infospotD0.visible = false;
+					D.add(infospotD0);
+infospotD0.addEventListener('click', function(){
+ChangePanorama('E');
+});
+var infospotD1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotD1.position.set( -4945.46, -340.72, 608.62 );
+					infospotD1.visible = false;
+					D.add(infospotD1);
+infospotD1.addEventListener('click', function(){
+ChangePanorama('C');
+});
+viewer.add( D );
+var E = new PANOLENS.ImagePanorama( "panoramas/E.jpg" );
+			E.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			E.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			E.addEventListener('click', function(e){
+			});
+
+var infospotE0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotE0.position.set( 4236.73, 570.18, 2576.95 );
+					infospotE0.visible = false;
+					E.add(infospotE0);
+infospotE0.addEventListener('click', function(){
+ChangePanorama('F');
+});
+var infospotE1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotE1.position.set( -3154.66, -29.83, 3868.88 );
+					infospotE1.visible = false;
+					E.add(infospotE1);
+infospotE1.addEventListener('click', function(){
+ChangePanorama('D');
+});
+viewer.add( E );
+var F = new PANOLENS.ImagePanorama( "panoramas/F.JPG" );
+			F.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			F.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			F.addEventListener('click', function(e){
+			});
+
+var infospotF0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotF0.position.set( 4288.07, -421.41, -2530.18 );
+					infospotF0.visible = false;
+					F.add(infospotF0);
+infospotF0.addEventListener('click', function(){
+ChangePanorama('E');
+});
+var infospotF1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotF1.position.set( -4985.41, -332.82, -28.91 );
+					infospotF1.visible = false;
+					F.add(infospotF1);
+infospotF1.addEventListener('click', function(){
+ChangePanorama('G');
+});
+viewer.add( F );
+var G = new PANOLENS.ImagePanorama( "panoramas/G.JPG" );
+			G.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			G.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			G.addEventListener('click', function(e){
+			});
+
+var infospotG0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotG0.position.set( 534.04, -298.56, -4958.94 );
+					infospotG0.visible = false;
+					G.add(infospotG0);
+infospotG0.addEventListener('click', function(){
+ChangePanorama('F');
+});
+var infospotG1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotG1.position.set( -4974.59, 348.77, -223.43 );
+					infospotG1.visible = false;
+					G.add(infospotG1);
+infospotG1.addEventListener('click', function(){
+ChangePanorama('H');
+});
+viewer.add( G );
+var H = new PANOLENS.ImagePanorama( "panoramas/H.JPG" );
+			H.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			H.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			H.addEventListener('click', function(e){
+			});
+
+var infospotH0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotH0.position.set( -175.06, 993.12, -4887.31 );
+					infospotH0.visible = false;
+					H.add(infospotH0);
+infospotH0.addEventListener('click', function(){
+ChangePanorama('I');
+});
+var infospotH1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotH1.position.set( 4836.89, -1223.58, -173.02 );
+					infospotH1.visible = false;
+					H.add(infospotH1);
+infospotH1.addEventListener('click', function(){
+ChangePanorama('G');
+});
+viewer.add( H );
+var I = new PANOLENS.ImagePanorama( "panoramas/I.JPG" );
+			I.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			I.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			I.addEventListener('click', function(e){
+			});
+
+var infospotI0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotI0.position.set( -4964.62, 520.72, 90.92 );
+					infospotI0.visible = false;
+					I.add(infospotI0);
+infospotI0.addEventListener('click', function(){
+ChangePanorama('J');
+});
+var infospotI1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotI1.position.set( 8.25, -1789.40, -4664.72 );
+					infospotI1.visible = false;
+					I.add(infospotI1);
+infospotI1.addEventListener('click', function(){
+ChangePanorama('H');
+});
+viewer.add( I );
+var J = new PANOLENS.ImagePanorama( "panoramas/J.JPG" );
+			J.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			J.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			J.addEventListener('click', function(e){
+			});
+
+var infospotJ0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotJ0.position.set( -4975.77, -317.66, 224.16 );
+					infospotJ0.visible = false;
+					J.add(infospotJ0);
+infospotJ0.addEventListener('click', function(){
+ChangePanorama('K');
+});
+var infospotJ1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotJ1.position.set( -564.67, -1226.62, 4809.34 );
+					infospotJ1.visible = false;
+					J.add(infospotJ1);
+infospotJ1.addEventListener('click', function(){
+ChangePanorama('I');
+});
+viewer.add( J );
+var K = new PANOLENS.ImagePanorama( "panoramas/K.JPG" );
+			K.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			K.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			K.addEventListener('click', function(e){
+			});
+
+var infospotK0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotK0.position.set( -4989.53, -263.30, 2.41 );
+					infospotK0.visible = false;
+					K.add(infospotK0);
+infospotK0.addEventListener('click', function(){
+ChangePanorama('L');
+});
+var infospotK1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotK1.position.set( 4970.81, -177.66, -423.78 );
+					infospotK1.visible = false;
+					K.add(infospotK1);
+infospotK1.addEventListener('click', function(){
+ChangePanorama('J');
+});
+viewer.add( K );
+var L = new PANOLENS.ImagePanorama( "panoramas/L.JPG" );
+			L.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			L.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			L.addEventListener('click', function(e){
+			});
+
+var infospotL0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotL0.position.set( -4978.40, -333.76, 161.89 );
+					infospotL0.visible = false;
+					L.add(infospotL0);
+infospotL0.addEventListener('click', function(){
+ChangePanorama('M');
+});
+var infospotL1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotL1.position.set( -139.50, -190.23, -4985.21 );
+					infospotL1.visible = false;
+					L.add(infospotL1);
+infospotL1.addEventListener('click', function(){
+ChangePanorama('K');
+});
+viewer.add( L );
+var M = new PANOLENS.ImagePanorama( "panoramas/M.JPG" );
+			M.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			M.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			M.addEventListener('click', function(e){
+			});
+
+var infospotM0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotM0.position.set( -2070.97, -748.69, -4484.18 );
+					infospotM0.visible = false;
+					M.add(infospotM0);
+infospotM0.addEventListener('click', function(){
+ChangePanorama('N');
+});
+var infospotM1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotM1.position.set( 4968.54, -338.98, -346.13 );
+					infospotM1.visible = false;
+					M.add(infospotM1);
+infospotM1.addEventListener('click', function(){
+ChangePanorama('L');
+});
+var infospotM2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotM2.position.set( -4936.88, -247.94, -686.03 );
+					infospotM2.visible = false;
+					M.add(infospotM2);
+infospotM2.addEventListener('click', function(){
+ChangePanorama('Aq');
+});
+viewer.add( M );
+var N = new PANOLENS.ImagePanorama( "panoramas/N.JPG" );
+			N.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			N.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			N.addEventListener('click', function(e){
+			});
+
+var infospotN0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotN0.position.set( 4968.43, -322.96, -360.18 );
+					infospotN0.visible = false;
+					N.add(infospotN0);
+infospotN0.addEventListener('click', function(){
+ChangePanorama('M');
+});
+var infospotN1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotN1.position.set( -4982.50, -401.75, 18.49 );
+					infospotN1.visible = false;
+					N.add(infospotN1);
+infospotN1.addEventListener('click', function(){
+ChangePanorama('O');
+});
+var infospotN2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotN2.position.set( 3322.69, -90.19, 3729.77 );
+					infospotN2.visible = false;
+					N.add(infospotN2);
+infospotN2.addEventListener('click', function(){
+ChangePanorama('Aq');
+});
+viewer.add( N );
+var O = new PANOLENS.ImagePanorama( "panoramas/O.JPG" );
+			O.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			O.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			O.addEventListener('click', function(e){
+			});
+
+var infospotO0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotO0.position.set( -4986.79, -201.86, -100.64 );
+					infospotO0.visible = false;
+					O.add(infospotO0);
+infospotO0.addEventListener('click', function(){
+ChangePanorama('P');
+});
+var infospotO1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotO1.position.set( 4924.95, -257.77, 758.87 );
+					infospotO1.visible = false;
+					O.add(infospotO1);
+infospotO1.addEventListener('click', function(){
+ChangePanorama('N');
+});
+var infospotO2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotO2.position.set( 141.00, -61.70, 4990.19 );
+					infospotO2.visible = false;
+					O.add(infospotO2);
+infospotO2.addEventListener('click', function(){
+ChangePanorama('Q');
+});
+viewer.add( O );
+var P = new PANOLENS.ImagePanorama( "panoramas/P.JPG" );
+			P.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			P.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			P.addEventListener('click', function(e){
+			});
+
+var infospotP0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotP0.position.set( 4982.01, -233.80, -168.05 );
+					infospotP0.visible = false;
+					P.add(infospotP0);
+infospotP0.addEventListener('click', function(){
+ChangePanorama('O');
+});
+viewer.add( P );
+var Q = new PANOLENS.ImagePanorama( "panoramas/Q.JPG" );
+			Q.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Q.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Q.addEventListener('click', function(e){
+			});
+
+var infospotQ0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotQ0.position.set( 4935.95, -343.87, -667.87 );
+					infospotQ0.visible = false;
+					Q.add(infospotQ0);
+infospotQ0.addEventListener('click', function(){
+ChangePanorama('O');
+});
+var infospotQ1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotQ1.position.set( -4971.29, -141.23, 441.86 );
+					infospotQ1.visible = false;
+					Q.add(infospotQ1);
+infospotQ1.addEventListener('click', function(){
+ChangePanorama('R');
+});
+viewer.add( Q );
+var R = new PANOLENS.ImagePanorama( "panoramas/R.JPG" );
+			R.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			R.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			R.addEventListener('click', function(e){
+			});
+
+var infospotR0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotR0.position.set( -4963.80, -470.26, 220.51 );
+					infospotR0.visible = false;
+					R.add(infospotR0);
+infospotR0.addEventListener('click', function(){
+ChangePanorama('S');
+});
+var infospotR1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotR1.position.set( 4989.94, -21.74, -175.67 );
+					infospotR1.visible = false;
+					R.add(infospotR1);
+infospotR1.addEventListener('click', function(){
+ChangePanorama('Q');
+});
+var infospotR2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotR2.position.set( -3886.71, -276.65, -3117.25 );
+					infospotR2.visible = false;
+					R.add(infospotR2);
+infospotR2.addEventListener('click', function(){
+ChangePanorama('T');
+});
+var infospotR3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotR3.position.set( -2973.89, -182.26, 4007.57 );
+					infospotR3.visible = false;
+					R.add(infospotR3);
+infospotR3.addEventListener('click', function(){
+ChangePanorama('Ar');
+});
+viewer.add( R );
+var S = new PANOLENS.ImagePanorama( "panoramas/S.JPG" );
+			S.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			S.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			S.addEventListener('click', function(e){
+			});
+
+var infospotS0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotS0.position.set( 4981.81, 22.94, -329.88 );
+					infospotS0.visible = false;
+					S.add(infospotS0);
+infospotS0.addEventListener('click', function(){
+ChangePanorama('R');
+});
+var infospotS1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotS1.position.set( -3373.92, -487.25, 3649.81 );
+					infospotS1.visible = false;
+					S.add(infospotS1);
+infospotS1.addEventListener('click', function(){
+ChangePanorama('As');
+});
+viewer.add( S );
+var T = new PANOLENS.ImagePanorama( "panoramas/T.JPG" );
+			T.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			T.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			T.addEventListener('click', function(e){
+			});
+
+var infospotT0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotT0.position.set( -3644.70, -300.65, -3399.99 );
+					infospotT0.visible = false;
+					T.add(infospotT0);
+infospotT0.addEventListener('click', function(){
+ChangePanorama('R');
+});
+var infospotT1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotT1.position.set( 646.69, -12.45, 4952.47 );
+					infospotT1.visible = false;
+					T.add(infospotT1);
+infospotT1.addEventListener('click', function(){
+ChangePanorama('U');
+});
+viewer.add( T );
+var U = new PANOLENS.ImagePanorama( "panoramas/U.JPG" );
+			U.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			U.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			U.addEventListener('click', function(e){
+			});
+
+var infospotU0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotU0.position.set( 4960.42, -98.45, -574.94 );
+					infospotU0.visible = false;
+					U.add(infospotU0);
+infospotU0.addEventListener('click', function(){
+ChangePanorama('V');
+});
+var infospotU1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotU1.position.set( -703.92, -528.98, -4911.96 );
+					infospotU1.visible = false;
+					U.add(infospotU1);
+infospotU1.addEventListener('click', function(){
+ChangePanorama('T');
+});
+var infospotU2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotU2.position.set( -60.42, -450.97, -4974.48 );
+					infospotU2.visible = false;
+					U.add(infospotU2);
+infospotU2.addEventListener('click', function(){
+ChangePanorama('S');
+});
+viewer.add( U );
+var V = new PANOLENS.ImagePanorama( "panoramas/V.JPG" );
+			V.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			V.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			V.addEventListener('click', function(e){
+			});
+
+var infospotV0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotV0.position.set( -4976.32, -232.44, -277.62 );
+					infospotV0.visible = false;
+					V.add(infospotV0);
+infospotV0.addEventListener('click', function(){
+ChangePanorama('U');
+});
+var infospotV1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotV1.position.set( 4981.95, -158.64, -225.56 );
+					infospotV1.visible = false;
+					V.add(infospotV1);
+infospotV1.addEventListener('click', function(){
+ChangePanorama('W');
+});
+viewer.add( V );
+var W = new PANOLENS.ImagePanorama( "panoramas/W.JPG" );
+			W.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			W.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			W.addEventListener('click', function(e){
+			});
+
+var infospotW0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotW0.position.set( -21.16, -182.01, -4991.74 );
+					infospotW0.visible = false;
+					W.add(infospotW0);
+infospotW0.addEventListener('click', function(){
+ChangePanorama('V');
+});
+var infospotW1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotW1.position.set( 4985.27, -236.52, -103.70 );
+					infospotW1.visible = false;
+					W.add(infospotW1);
+infospotW1.addEventListener('click', function(){
+ChangePanorama('X');
+});
+viewer.add( W );
+var X = new PANOLENS.ImagePanorama( "panoramas/X.JPG" );
+			X.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			X.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			X.addEventListener('click', function(e){
+			});
+
+var infospotX0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotX0.position.set( 4964.90, -500.88, -130.35 );
+					infospotX0.visible = false;
+					X.add(infospotX0);
+infospotX0.addEventListener('click', function(){
+ChangePanorama('W');
+});
+var infospotX1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotX1.position.set( -46.47, -384.47, -4982.46 );
+					infospotX1.visible = false;
+					X.add(infospotX1);
+infospotX1.addEventListener('click', function(){
+ChangePanorama('Y');
+});
+var infospotX2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotX2.position.set( -4897.02, -413.09, -885.77 );
+					infospotX2.visible = false;
+					X.add(infospotX2);
+infospotX2.addEventListener('click', function(){
+ChangePanorama('Z');
+});
+var infospotX3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotX3.position.set( -4982.89, -250.42, 138.69 );
+					infospotX3.visible = false;
+					X.add(infospotX3);
+infospotX3.addEventListener('click', function(){
+ChangePanorama('Aa');
+});
+viewer.add( X );
+var Y = new PANOLENS.ImagePanorama( "panoramas/Y.JPG" );
+			Y.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Y.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Y.addEventListener('click', function(e){
+			});
+
+var infospotY0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotY0.position.set( -4376.45, -588.64, 2324.07 );
+					infospotY0.visible = false;
+					Y.add(infospotY0);
+infospotY0.addEventListener('click', function(){
+ChangePanorama('X');
+});
+viewer.add( Y );
+var Z = new PANOLENS.ImagePanorama( "panoramas/Z.JPG" );
+			Z.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Z.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Z.addEventListener('click', function(e){
+			});
+
+var infospotZ0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotZ0.position.set( 4924.45, -536.45, -619.41 );
+					infospotZ0.visible = false;
+					Z.add(infospotZ0);
+infospotZ0.addEventListener('click', function(){
+ChangePanorama('X');
+});
+viewer.add( Z );
+var Aa = new PANOLENS.ImagePanorama( "panoramas/Aa.JPG" );
+			Aa.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Aa.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Aa.addEventListener('click', function(e){
+			});
+
+var infospotAa0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAa0.position.set( -265.74, -299.48, -4974.31 );
+					infospotAa0.visible = false;
+					Aa.add(infospotAa0);
+infospotAa0.addEventListener('click', function(){
+ChangePanorama('X');
+});
+var infospotAa1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAa1.position.set( -1688.47, -709.57, -4643.59 );
+					infospotAa1.visible = false;
+					Aa.add(infospotAa1);
+infospotAa1.addEventListener('click', function(){
+ChangePanorama('Z');
+});
+var infospotAa2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAa2.position.set( 4985.91, -162.12, -147.33 );
+					infospotAa2.visible = false;
+					Aa.add(infospotAa2);
+infospotAa2.addEventListener('click', function(){
+ChangePanorama('Ab');
+});
+var infospotAa3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAa3.position.set( 247.42, -558.08, 4952.00 );
+					infospotAa3.visible = false;
+					Aa.add(infospotAa3);
+infospotAa3.addEventListener('click', function(){
+ChangePanorama('Ac');
+});
+viewer.add( Aa );
+var Ab = new PANOLENS.ImagePanorama( "panoramas/Ab.JPG" );
+			Ab.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ab.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ab.addEventListener('click', function(e){
+			});
+
+var infospotAb0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAb0.position.set( -4981.91, -406.45, -19.13 );
+					infospotAb0.visible = false;
+					Ab.add(infospotAb0);
+infospotAb0.addEventListener('click', function(){
+ChangePanorama('Aa');
+});
+var infospotAb1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAb1.position.set( 4987.17, -117.46, 156.82 );
+					infospotAb1.visible = false;
+					Ab.add(infospotAb1);
+infospotAb1.addEventListener('click', function(){
+ChangePanorama('Ag');
+});
+var infospotAb2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAb2.position.set( -94.94, -194.02, 4987.40 );
+					infospotAb2.visible = false;
+					Ab.add(infospotAb2);
+infospotAb2.addEventListener('click', function(){
+ChangePanorama('Ad');
+});
+viewer.add( Ab );
+var Ac = new PANOLENS.ImagePanorama( "panoramas/Ac.JPG" );
+			Ac.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ac.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ac.addEventListener('click', function(e){
+			});
+
+var infospotAc0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAc0.position.set( -163.63, -620.49, -4949.00 );
+					infospotAc0.visible = false;
+					Ac.add(infospotAc0);
+infospotAc0.addEventListener('click', function(){
+ChangePanorama('Aa');
+});
+var infospotAc1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAc1.position.set( 4984.87, -196.62, -141.24 );
+					infospotAc1.visible = false;
+					Ac.add(infospotAc1);
+infospotAc1.addEventListener('click', function(){
+ChangePanorama('Ad');
+});
+var infospotAc2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAc2.position.set( 1419.27, -240.39, 4779.23 );
+					infospotAc2.visible = false;
+					Ac.add(infospotAc2);
+infospotAc2.addEventListener('click', function(){
+ChangePanorama('Ae');
+});
+viewer.add( Ac );
+var Ad = new PANOLENS.ImagePanorama( "panoramas/Ad.JPG" );
+			Ad.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ad.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ad.addEventListener('click', function(e){
+			});
+
+var infospotAd0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAd0.position.set( -4930.87, -660.76, 418.75 );
+					infospotAd0.visible = false;
+					Ad.add(infospotAd0);
+infospotAd0.addEventListener('click', function(){
+ChangePanorama('Ac');
+});
+var infospotAd1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAd1.position.set( 255.35, -448.55, 4964.55 );
+					infospotAd1.visible = false;
+					Ad.add(infospotAd1);
+infospotAd1.addEventListener('click', function(){
+ChangePanorama('Ae');
+});
+var infospotAd2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAd2.position.set( 4958.60, -487.31, -281.24 );
+					infospotAd2.visible = false;
+					Ad.add(infospotAd2);
+infospotAd2.addEventListener('click', function(){
+ChangePanorama('Ai');
+});
+var infospotAd3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAd3.position.set( -517.56, -656.50, -4926.19 );
+					infospotAd3.visible = false;
+					Ad.add(infospotAd3);
+infospotAd3.addEventListener('click', function(){
+ChangePanorama('Ab');
+});
+viewer.add( Ad );
+var Ae = new PANOLENS.ImagePanorama( "panoramas/Ae.JPG" );
+			Ae.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ae.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ae.addEventListener('click', function(e){
+			});
+
+var infospotAe0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAe0.position.set( -557.55, -505.64, -4937.93 );
+					infospotAe0.visible = false;
+					Ae.add(infospotAe0);
+infospotAe0.addEventListener('click', function(){
+ChangePanorama('Ad');
+});
+var infospotAe1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAe1.position.set( 4980.37, -96.64, -302.18 );
+					infospotAe1.visible = false;
+					Ae.add(infospotAe1);
+infospotAe1.addEventListener('click', function(){
+ChangePanorama('Af');
+});
+var infospotAe2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAe2.position.set( -4930.10, -743.41, 246.80 );
+					infospotAe2.visible = false;
+					Ae.add(infospotAe2);
+infospotAe2.addEventListener('click', function(){
+ChangePanorama('Ac');
+});
+viewer.add( Ae );
+var Af = new PANOLENS.ImagePanorama( "panoramas/Af.jpg" );
+			Af.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Af.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Af.addEventListener('click', function(e){
+			});
+
+var infospotAf0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAf0.position.set( -533.97, -670.88, 4921.89 );
+					infospotAf0.visible = false;
+					Af.add(infospotAf0);
+infospotAf0.addEventListener('click', function(){
+ChangePanorama('Ae');
+});
+var infospotAf1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAf1.position.set( -87.66, -276.52, -4984.54 );
+					infospotAf1.visible = false;
+					Af.add(infospotAf1);
+infospotAf1.addEventListener('click', function(){
+ChangePanorama('Aj');
+});
+var infospotAf2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAf2.position.set( -4971.64, -480.60, 47.53 );
+					infospotAf2.visible = false;
+					Af.add(infospotAf2);
+infospotAf2.addEventListener('click', function(){
+ChangePanorama('Ag');
+});
+viewer.add( Af );
+var Ag = new PANOLENS.ImagePanorama( "panoramas/Ag.JPG" );
+			Ag.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ag.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ag.addEventListener('click', function(e){
+			});
+
+var infospotAg0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAg0.position.set( 337.62, -373.02, 4967.65 );
+					infospotAg0.visible = false;
+					Ag.add(infospotAg0);
+infospotAg0.addEventListener('click', function(){
+ChangePanorama('Ab');
+});
+var infospotAg1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAg1.position.set( -63.43, -257.93, -4986.54 );
+					infospotAg1.visible = false;
+					Ag.add(infospotAg1);
+infospotAg1.addEventListener('click', function(){
+ChangePanorama('Ah');
+});
+var infospotAg2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAg2.position.set( 4987.85, -86.83, -166.79 );
+					infospotAg2.visible = false;
+					Ag.add(infospotAg2);
+infospotAg2.addEventListener('click', function(){
+ChangePanorama('Af');
+});
+viewer.add( Ag );
+var Ah = new PANOLENS.ImagePanorama( "panoramas/Ah.jpg" );
+			Ah.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ah.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ah.addEventListener('click', function(e){
+			});
+
+var infospotAh0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAh0.position.set( 108.26, -417.74, 4975.90 );
+					infospotAh0.visible = false;
+					Ah.add(infospotAh0);
+infospotAh0.addEventListener('click', function(){
+ChangePanorama('Ag');
+});
+var infospotAh1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAh1.position.set( 4981.40, -351.18, -91.65 );
+					infospotAh1.visible = false;
+					Ah.add(infospotAh1);
+infospotAh1.addEventListener('click', function(){
+ChangePanorama('Ai');
+});
+var infospotAh2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAh2.position.set( -156.33, -232.38, -4982.68 );
+					infospotAh2.visible = false;
+					Ah.add(infospotAh2);
+infospotAh2.addEventListener('click', function(){
+ChangePanorama('Am');
+});
+viewer.add( Ah );
+var Ai = new PANOLENS.ImagePanorama( "panoramas/Ai.jpg" );
+			Ai.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ai.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ai.addEventListener('click', function(e){
+			});
+
+var infospotAi0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAi0.position.set( 4977.95, -373.01, -141.12 );
+					infospotAi0.visible = false;
+					Ai.add(infospotAi0);
+infospotAi0.addEventListener('click', function(){
+ChangePanorama('Ad');
+});
+var infospotAi1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAi1.position.set( -4978.62, -269.92, 205.66 );
+					infospotAi1.visible = false;
+					Ai.add(infospotAi1);
+infospotAi1.addEventListener('click', function(){
+ChangePanorama('Al');
+});
+var infospotAi2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAi2.position.set( -178.06, -887.82, -4908.10 );
+					infospotAi2.visible = false;
+					Ai.add(infospotAi2);
+infospotAi2.addEventListener('click', function(){
+ChangePanorama('Aj');
+});
+viewer.add( Ai );
+var Aj = new PANOLENS.ImagePanorama( "panoramas/Aj.jpg" );
+			Aj.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Aj.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Aj.addEventListener('click', function(e){
+			});
+
+var infospotAj0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAj0.position.set( -4984.09, -218.48, 139.84 );
+					infospotAj0.visible = false;
+					Aj.add(infospotAj0);
+infospotAj0.addEventListener('click', function(){
+ChangePanorama('Ak');
+});
+var infospotAj1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAj1.position.set( 4943.92, -544.21, 432.85 );
+					infospotAj1.visible = false;
+					Aj.add(infospotAj1);
+infospotAj1.addEventListener('click', function(){
+ChangePanorama('Af');
+});
+var infospotAj2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAj2.position.set( 20.07, -182.74, 4991.77 );
+					infospotAj2.visible = false;
+					Aj.add(infospotAj2);
+infospotAj2.addEventListener('click', function(){
+ChangePanorama('Ai');
+});
+viewer.add( Aj );
+var Ak = new PANOLENS.ImagePanorama( "panoramas/Ak.jpg" );
+			Ak.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ak.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ak.addEventListener('click', function(e){
+			});
+
+var infospotAk0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAk0.position.set( 4970.03, -352.95, -307.26 );
+					infospotAk0.visible = false;
+					Ak.add(infospotAk0);
+infospotAk0.addEventListener('click', function(){
+ChangePanorama('Aj');
+});
+var infospotAk1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAk1.position.set( 160.03, -311.55, 4979.37 );
+					infospotAk1.visible = false;
+					Ak.add(infospotAk1);
+infospotAk1.addEventListener('click', function(){
+ChangePanorama('Al');
+});
+var infospotAk2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAk2.position.set( -4989.08, -172.64, 79.02 );
+					infospotAk2.visible = false;
+					Ak.add(infospotAk2);
+infospotAk2.addEventListener('click', function(){
+ChangePanorama('Ap');
+});
+viewer.add( Ak );
+var Al = new PANOLENS.ImagePanorama( "panoramas/Al.jpg" );
+			Al.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Al.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Al.addEventListener('click', function(e){
+			});
+
+var infospotAl0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAl0.position.set( -54.08, -544.38, 4963.75 );
+					infospotAl0.visible = false;
+					Al.add(infospotAl0);
+infospotAl0.addEventListener('click', function(){
+ChangePanorama('Am');
+});
+var infospotAl1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAl1.position.set( 4982.92, -328.77, 79.34 );
+					infospotAl1.visible = false;
+					Al.add(infospotAl1);
+infospotAl1.addEventListener('click', function(){
+ChangePanorama('Ai');
+});
+var infospotAl2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAl2.position.set( 60.08, -378.89, -4981.96 );
+					infospotAl2.visible = false;
+					Al.add(infospotAl2);
+infospotAl2.addEventListener('click', function(){
+ChangePanorama('Ak');
+});
+viewer.add( Al );
+var Am = new PANOLENS.ImagePanorama( "panoramas/Am.jpg" );
+			Am.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Am.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Am.addEventListener('click', function(e){
+			});
+
+var infospotAm0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAm0.position.set( -64.29, -478.02, -4971.07 );
+					infospotAm0.visible = false;
+					Am.add(infospotAm0);
+infospotAm0.addEventListener('click', function(){
+ChangePanorama('Al');
+});
+var infospotAm1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAm1.position.set( -4980.41, -374.16, 93.33 );
+					infospotAm1.visible = false;
+					Am.add(infospotAm1);
+infospotAm1.addEventListener('click', function(){
+ChangePanorama('An');
+});
+var infospotAm2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAm2.position.set( 4989.61, -211.46, -39.65 );
+					infospotAm2.visible = false;
+					Am.add(infospotAm2);
+infospotAm2.addEventListener('click', function(){
+ChangePanorama('Ah');
+});
+viewer.add( Am );
+var An = new PANOLENS.ImagePanorama( "panoramas/An.jpg" );
+			An.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			An.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			An.addEventListener('click', function(e){
+			});
+
+var infospotAn0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAn0.position.set( -4973.94, -307.60, 266.67 );
+					infospotAn0.visible = false;
+					An.add(infospotAn0);
+infospotAn0.addEventListener('click', function(){
+ChangePanorama('Am');
+});
+var infospotAn1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAn1.position.set( 4981.98, -288.87, -127.27 );
+					infospotAn1.visible = false;
+					An.add(infospotAn1);
+infospotAn1.addEventListener('click', function(){
+ChangePanorama('Ao');
+});
+var infospotAn2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAn2.position.set( -506.34, -672.37, -4924.90 );
+					infospotAn2.visible = false;
+					An.add(infospotAn2);
+infospotAn2.addEventListener('click', function(){
+ChangePanorama('Ar');
+});
+viewer.add( An );
+var Ao = new PANOLENS.ImagePanorama( "panoramas/Ao.jpg" );
+			Ao.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ao.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ao.addEventListener('click', function(e){
+			});
+
+var infospotAo0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAo0.position.set( -4982.01, -403.26, -24.43 );
+					infospotAo0.visible = false;
+					Ao.add(infospotAo0);
+infospotAo0.addEventListener('click', function(){
+ChangePanorama('An');
+});
+var infospotAo1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAo1.position.set( 2174.99, -625.45, -4447.52 );
+					infospotAo1.visible = false;
+					Ao.add(infospotAo1);
+infospotAo1.addEventListener('click', function(){
+ChangePanorama('R');
+});
+var infospotAo2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAo2.position.set( 4989.84, -196.68, 46.38 );
+					infospotAo2.visible = false;
+					Ao.add(infospotAo2);
+infospotAo2.addEventListener('click', function(){
+ChangePanorama('Aq');
+});
+viewer.add( Ao );
+var Ap = new PANOLENS.ImagePanorama( "panoramas/Ap.jpg" );
+			Ap.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ap.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ap.addEventListener('click', function(e){
+			});
+
+var infospotAp0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAp0.position.set( -4966.23, -237.03, 466.74 );
+					infospotAp0.visible = false;
+					Ap.add(infospotAp0);
+infospotAp0.addEventListener('click', function(){
+ChangePanorama('Ak');
+});
+var infospotAp1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAp1.position.set( -734.47, -527.13, -4907.34 );
+					infospotAp1.visible = false;
+					Ap.add(infospotAp1);
+infospotAp1.addEventListener('click', function(){
+ChangePanorama('Aq');
+});
+viewer.add( Ap );
+var Aq = new PANOLENS.ImagePanorama( "panoramas/Aq.jpg" );
+			Aq.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Aq.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Aq.addEventListener('click', function(e){
+			});
+
+var infospotAq0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAq0.position.set( 4976.49, -397.73, 142.15 );
+					infospotAq0.visible = false;
+					Aq.add(infospotAq0);
+infospotAq0.addEventListener('click', function(){
+ChangePanorama('Ao');
+});
+var infospotAq1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAq1.position.set( -4985.52, -293.53, -56.32 );
+					infospotAq1.visible = false;
+					Aq.add(infospotAq1);
+infospotAq1.addEventListener('click', function(){
+ChangePanorama('M');
+});
+var infospotAq2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAq2.position.set( -4858.87, -347.18, 1105.87 );
+					infospotAq2.visible = false;
+					Aq.add(infospotAq2);
+infospotAq2.addEventListener('click', function(){
+ChangePanorama('N');
+});
+var infospotAq3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAq3.position.set( -147.56, -434.25, -4971.89 );
+					infospotAq3.visible = false;
+					Aq.add(infospotAq3);
+infospotAq3.addEventListener('click', function(){
+ChangePanorama('Ap');
+});
+viewer.add( Aq );
+var Ar = new PANOLENS.ImagePanorama( "panoramas/Ar.jpg" );
+			Ar.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ar.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ar.addEventListener('click', function(e){
+			});
+
+var infospotAr0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAr0.position.set( -3809.68, -536.72, 3178.05 );
+					infospotAr0.visible = false;
+					Ar.add(infospotAr0);
+infospotAr0.addEventListener('click', function(){
+ChangePanorama('R');
+});
+var infospotAr1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAr1.position.set( -297.78, -60.84, 4982.00 );
+					infospotAr1.visible = false;
+					Ar.add(infospotAr1);
+infospotAr1.addEventListener('click', function(){
+ChangePanorama('T');
+});
+var infospotAr2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAr2.position.set( 4938.66, -501.39, 556.14 );
+					infospotAr2.visible = false;
+					Ar.add(infospotAr2);
+infospotAr2.addEventListener('click', function(){
+ChangePanorama('As');
+});
+var infospotAr3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAr3.position.set( 3216.54, -732.55, -3748.72 );
+					infospotAr3.visible = false;
+					Ar.add(infospotAr3);
+infospotAr3.addEventListener('click', function(){
+ChangePanorama('An');
+});
+viewer.add( Ar );
+var As = new PANOLENS.ImagePanorama( "panoramas/As.jpg" );
+			As.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			As.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			As.addEventListener('click', function(e){
+			});
+
+var infospotAs0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAs0.position.set( 4509.17, -2125.80, 235.03 );
+					infospotAs0.visible = false;
+					As.add(infospotAs0);
+infospotAs0.addEventListener('click', function(){
+ChangePanorama('Ar');
+});
+var infospotAs1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAs1.position.set( 233.20, -483.80, -4961.53 );
+					infospotAs1.visible = false;
+					As.add(infospotAs1);
+infospotAs1.addEventListener('click', function(){
+ChangePanorama('At');
+});
+var infospotAs2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAs2.position.set( 4712.11, -272.07, 1627.78 );
+					infospotAs2.visible = false;
+					As.add(infospotAs2);
+infospotAs2.addEventListener('click', function(){
+ChangePanorama('Bw');
+});
+viewer.add( As );
+var At = new PANOLENS.ImagePanorama( "panoramas/At.JPG" );
+			At.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			At.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			At.addEventListener('click', function(e){
+			});
+
+var infospotAt0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAt0.position.set( -49.39, -691.42, -4946.59 );
+					infospotAt0.visible = false;
+					At.add(infospotAt0);
+infospotAt0.addEventListener('click', function(){
+ChangePanorama('As');
+});
+var infospotAt1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAt1.position.set( 141.31, -368.39, 4978.12 );
+					infospotAt1.visible = false;
+					At.add(infospotAt1);
+infospotAt1.addEventListener('click', function(){
+ChangePanorama('Au');
+});
+viewer.add( At );
+var Au = new PANOLENS.ImagePanorama( "panoramas/Au.JPG" );
+			Au.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Au.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Au.addEventListener('click', function(e){
+			});
+
+var infospotAu0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAu0.position.set( -344.10, -521.35, -4951.28 );
+					infospotAu0.visible = false;
+					Au.add(infospotAu0);
+infospotAu0.addEventListener('click', function(){
+ChangePanorama('At');
+});
+var infospotAu1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAu1.position.set( -1044.50, -717.12, 4833.73 );
+					infospotAu1.visible = false;
+					Au.add(infospotAu1);
+infospotAu1.addEventListener('click', function(){
+ChangePanorama('Av');
+});
+viewer.add( Au );
+var Av = new PANOLENS.ImagePanorama( "panoramas/Av.JPG" );
+			Av.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Av.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Av.addEventListener('click', function(e){
+			});
+
+var infospotAv0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAv0.position.set( -557.32, -607.91, -4925.73 );
+					infospotAv0.visible = false;
+					Av.add(infospotAv0);
+infospotAv0.addEventListener('click', function(){
+ChangePanorama('Au');
+});
+var infospotAv1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAv1.position.set( 225.76, -649.04, 4942.37 );
+					infospotAv1.visible = false;
+					Av.add(infospotAv1);
+infospotAv1.addEventListener('click', function(){
+ChangePanorama('Aw');
+});
+var infospotAv2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAv2.position.set( -4987.16, -241.61, 63.86 );
+					infospotAv2.visible = false;
+					Av.add(infospotAv2);
+infospotAv2.addEventListener('click', function(){
+ChangePanorama('Ay');
+});
+viewer.add( Av );
+var Aw = new PANOLENS.ImagePanorama( "panoramas/Aw.JPG" );
+			Aw.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Aw.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Aw.addEventListener('click', function(e){
+			});
+
+var infospotAw0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAw0.position.set( -108.01, -497.44, -4966.48 );
+					infospotAw0.visible = false;
+					Aw.add(infospotAw0);
+infospotAw0.addEventListener('click', function(){
+ChangePanorama('Av');
+});
+var infospotAw1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAw1.position.set( -4961.26, -551.30, -85.98 );
+					infospotAw1.visible = false;
+					Aw.add(infospotAw1);
+infospotAw1.addEventListener('click', function(){
+ChangePanorama('Ax');
+});
+viewer.add( Aw );
+var Ax = new PANOLENS.ImagePanorama( "panoramas/Ax.JPG" );
+			Ax.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ax.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ax.addEventListener('click', function(e){
+			});
+
+var infospotAx0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAx0.position.set( -12.61, -609.64, -4958.20 );
+					infospotAx0.visible = false;
+					Ax.add(infospotAx0);
+infospotAx0.addEventListener('click', function(){
+ChangePanorama('Aw');
+});
+var infospotAx1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAx1.position.set( -4933.21, -771.68, 123.55 );
+					infospotAx1.visible = false;
+					Ax.add(infospotAx1);
+infospotAx1.addEventListener('click', function(){
+ChangePanorama('Ay');
+});
+var infospotAx2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAx2.position.set( 33.82, -578.68, 4960.75 );
+					infospotAx2.visible = false;
+					Ax.add(infospotAx2);
+infospotAx2.addEventListener('click', function(){
+ChangePanorama('Az');
+});
+viewer.add( Ax );
+var Ay = new PANOLENS.ImagePanorama( "panoramas/Ay.JPG" );
+			Ay.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ay.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ay.addEventListener('click', function(e){
+			});
+
+var infospotAy0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAy0.position.set( -10.71, -720.96, 4945.13 );
+					infospotAy0.visible = false;
+					Ay.add(infospotAy0);
+infospotAy0.addEventListener('click', function(){
+ChangePanorama('Ax');
+});
+var infospotAy1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAy1.position.set( 4925.01, -741.67, 347.79 );
+					infospotAy1.visible = false;
+					Ay.add(infospotAy1);
+infospotAy1.addEventListener('click', function(){
+ChangePanorama('Av');
+});
+var infospotAy2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAy2.position.set( -4976.27, -417.51, 101.70 );
+					infospotAy2.visible = false;
+					Ay.add(infospotAy2);
+infospotAy2.addEventListener('click', function(){
+ChangePanorama('Az');
+});
+viewer.add( Ay );
+var Az = new PANOLENS.ImagePanorama( "panoramas/Az.JPG" );
+			Az.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Az.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Az.addEventListener('click', function(e){
+			});
+
+var infospotAz0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAz0.position.set( 4980.03, -265.82, 181.75 );
+					infospotAz0.visible = false;
+					Az.add(infospotAz0);
+infospotAz0.addEventListener('click', function(){
+ChangePanorama('Ay');
+});
+var infospotAz1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAz1.position.set( 3038.23, -351.94, 3946.90 );
+					infospotAz1.visible = false;
+					Az.add(infospotAz1);
+infospotAz1.addEventListener('click', function(){
+ChangePanorama('Ax');
+});
+var infospotAz2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotAz2.position.set( -4978.25, -321.38, -174.09 );
+					infospotAz2.visible = false;
+					Az.add(infospotAz2);
+infospotAz2.addEventListener('click', function(){
+ChangePanorama('Ba');
+});
+viewer.add( Az );
+var Ba = new PANOLENS.ImagePanorama( "panoramas/Ba.JPG" );
+			Ba.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Ba.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Ba.addEventListener('click', function(e){
+			});
+
+var infospotBa0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBa0.position.set( 4975.60, -121.92, -374.26 );
+					infospotBa0.visible = false;
+					Ba.add(infospotBa0);
+infospotBa0.addEventListener('click', function(){
+ChangePanorama('Az');
+});
+var infospotBa1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBa1.position.set( -4959.10, -405.91, 455.54 );
+					infospotBa1.visible = false;
+					Ba.add(infospotBa1);
+infospotBa1.addEventListener('click', function(){
+ChangePanorama('Bb');
+});
+viewer.add( Ba );
+var Bb = new PANOLENS.ImagePanorama( "panoramas/Bb.JPG" );
+			Bb.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bb.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bb.addEventListener('click', function(e){
+			});
+
+var infospotBb0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBb0.position.set( 49.52, -53.47, 4995.30 );
+					infospotBb0.visible = false;
+					Bb.add(infospotBb0);
+infospotBb0.addEventListener('click', function(){
+ChangePanorama('Ba');
+});
+var infospotBb1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBb1.position.set( -4938.79, -702.42, -173.40 );
+					infospotBb1.visible = false;
+					Bb.add(infospotBb1);
+infospotBb1.addEventListener('click', function(){
+ChangePanorama('Bc');
+});
+var infospotBb2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBb2.position.set( 4969.42, -386.59, -293.63 );
+					infospotBb2.visible = false;
+					Bb.add(infospotBb2);
+infospotBb2.addEventListener('click', function(){
+ChangePanorama('Bdd');
+});
+viewer.add( Bb );
+var Bc = new PANOLENS.ImagePanorama( "panoramas/Bc.JPG" );
+			Bc.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bc.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bc.addEventListener('click', function(e){
+			});
+
+var infospotBc0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBc0.position.set( 4366.40, -350.80, 2398.50 );
+					infospotBc0.visible = false;
+					Bc.add(infospotBc0);
+infospotBc0.addEventListener('click', function(){
+ChangePanorama('Bb');
+});
+var infospotBc1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBc1.position.set( -303.50, -444.23, -4962.53 );
+					infospotBc1.visible = false;
+					Bc.add(infospotBc1);
+infospotBc1.addEventListener('click', function(){
+ChangePanorama('Bd');
+});
+viewer.add( Bc );
+var Bd = new PANOLENS.ImagePanorama( "panoramas/Bd.JPG" );
+			Bd.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bd.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bd.addEventListener('click', function(e){
+			});
+
+var infospotBd0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBd0.position.set( 4945.24, -581.48, 323.58 );
+					infospotBd0.visible = false;
+					Bd.add(infospotBd0);
+infospotBd0.addEventListener('click', function(){
+ChangePanorama('Bc');
+});
+var infospotBd1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBd1.position.set( -4961.11, -451.41, -314.42 );
+					infospotBd1.visible = false;
+					Bd.add(infospotBd1);
+infospotBd1.addEventListener('click', function(){
+ChangePanorama('Bf');
+});
+viewer.add( Bd );
+var Bdd = new PANOLENS.ImagePanorama( "panoramas/Bdd.jpg" );
+			Bdd.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bdd.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bdd.addEventListener('click', function(e){
+			});
+
+var infospotBdd0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBdd0.position.set( -4359.09, -413.70, 2403.68 );
+					infospotBdd0.visible = false;
+					Bdd.add(infospotBdd0);
+infospotBdd0.addEventListener('click', function(){
+ChangePanorama('Bb');
+});
+var infospotBdd1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBdd1.position.set( -1797.84, -643.96, -4609.91 );
+					infospotBdd1.visible = false;
+					Bdd.add(infospotBdd1);
+infospotBdd1.addEventListener('click', function(){
+ChangePanorama('Bg');
+});
+var infospotBdd2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBdd2.position.set( 4959.69, -379.29, -484.89 );
+					infospotBdd2.visible = false;
+					Bdd.add(infospotBdd2);
+infospotBdd2.addEventListener('click', function(){
+ChangePanorama('Bi');
+});
+viewer.add( Bdd );
+var Bf = new PANOLENS.ImagePanorama( "panoramas/Bf.JPG" );
+			Bf.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bf.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bf.addEventListener('click', function(e){
+			});
+
+var infospotBf0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBf0.position.set( 4963.23, -249.44, -514.52 );
+					infospotBf0.visible = false;
+					Bf.add(infospotBf0);
+infospotBf0.addEventListener('click', function(){
+ChangePanorama('Bd');
+});
+var infospotBf1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBf1.position.set( -228.26, -578.30, -4950.61 );
+					infospotBf1.visible = false;
+					Bf.add(infospotBf1);
+infospotBf1.addEventListener('click', function(){
+ChangePanorama('Bg');
+});
+viewer.add( Bf );
+var Bg = new PANOLENS.ImagePanorama( "panoramas/Bg.JPG" );
+			Bg.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bg.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bg.addEventListener('click', function(e){
+			});
+
+var infospotBg0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBg0.position.set( 446.70, -479.05, 4950.91 );
+					infospotBg0.visible = false;
+					Bg.add(infospotBg0);
+infospotBg0.addEventListener('click', function(){
+ChangePanorama('Bf');
+});
+var infospotBg1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBg1.position.set( -4955.91, -457.15, 400.68 );
+					infospotBg1.visible = false;
+					Bg.add(infospotBg1);
+infospotBg1.addEventListener('click', function(){
+ChangePanorama('Bh');
+});
+var infospotBg2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBg2.position.set( -130.85, -392.55, -4977.70 );
+					infospotBg2.visible = false;
+					Bg.add(infospotBg2);
+infospotBg2.addEventListener('click', function(){
+ChangePanorama('Bpp');
+});
+var infospotBg3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBg3.position.set( 1727.72, -532.18, -4650.98 );
+					infospotBg3.visible = false;
+					Bg.add(infospotBg3);
+infospotBg3.addEventListener('click', function(){
+ChangePanorama('Bdd');
+});
+viewer.add( Bg );
+var Bh = new PANOLENS.ImagePanorama( "panoramas/Bh.JPG" );
+			Bh.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bh.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bh.addEventListener('click', function(e){
+			});
+
+var infospotBh0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBh0.position.set( 4927.35, -303.61, 732.28 );
+					infospotBh0.visible = false;
+					Bh.add(infospotBh0);
+infospotBh0.addEventListener('click', function(){
+ChangePanorama('Bg');
+});
+viewer.add( Bh );
+var Bi = new PANOLENS.ImagePanorama( "panoramas/Bi.JPG" );
+			Bi.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bi.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bi.addEventListener('click', function(e){
+			});
+
+viewer.add( Bi );
+var Bj = new PANOLENS.ImagePanorama( "panoramas/Bj.JPG" );
+			Bj.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bj.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bj.addEventListener('click', function(e){
+			});
+
+var infospotBj0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBj0.position.set( 339.70, -294.93, 4970.61 );
+					infospotBj0.visible = false;
+					Bj.add(infospotBj0);
+infospotBj0.addEventListener('click', function(){
+ChangePanorama('Bpp');
+});
+var infospotBj1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBj1.position.set( -557.67, -448.65, -4944.73 );
+					infospotBj1.visible = false;
+					Bj.add(infospotBj1);
+infospotBj1.addEventListener('click', function(){
+ChangePanorama('Bk');
+});
+var infospotBj2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBj2.position.set( -2357.66, -760.61, -4336.52 );
+					infospotBj2.visible = false;
+					Bj.add(infospotBj2);
+infospotBj2.addEventListener('click', function(){
+ChangePanorama('Bl');
+});
+viewer.add( Bj );
+var Bk = new PANOLENS.ImagePanorama( "panoramas/Bk.JPG" );
+			Bk.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bk.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bk.addEventListener('click', function(e){
+			});
+
+var infospotBk0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBk0.position.set( -111.13, -497.13, -4966.35 );
+					infospotBk0.visible = false;
+					Bk.add(infospotBk0);
+infospotBk0.addEventListener('click', function(){
+ChangePanorama('Bj');
+});
+var infospotBk1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBk1.position.set( 4706.62, -647.59, -1544.72 );
+					infospotBk1.visible = false;
+					Bk.add(infospotBk1);
+infospotBk1.addEventListener('click', function(){
+ChangePanorama('Bl');
+});
+var infospotBk2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBk2.position.set( -4978.69, -336.55, 154.23 );
+					infospotBk2.visible = false;
+					Bk.add(infospotBk2);
+infospotBk2.addEventListener('click', function(){
+ChangePanorama('Bq');
+});
+viewer.add( Bk );
+var Bl = new PANOLENS.ImagePanorama( "panoramas/Bl.JPG" );
+			Bl.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bl.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bl.addEventListener('click', function(e){
+			});
+
+var infospotBl0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBl0.position.set( 54.82, -468.06, -4972.75 );
+					infospotBl0.visible = false;
+					Bl.add(infospotBl0);
+infospotBl0.addEventListener('click', function(){
+ChangePanorama('Bk');
+});
+var infospotBl1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBl1.position.set( 9.10, -532.60, 4967.50 );
+					infospotBl1.visible = false;
+					Bl.add(infospotBl1);
+infospotBl1.addEventListener('click', function(){
+ChangePanorama('Bm');
+});
+viewer.add( Bl );
+var Bm = new PANOLENS.ImagePanorama( "panoramas/Bm.JPG" );
+			Bm.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bm.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bm.addEventListener('click', function(e){
+			});
+
+var infospotBm0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBm0.position.set( -152.04, -490.82, 4964.96 );
+					infospotBm0.visible = false;
+					Bm.add(infospotBm0);
+infospotBm0.addEventListener('click', function(){
+ChangePanorama('Bl');
+});
+var infospotBm1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBm1.position.set( -105.09, -575.90, -4957.35 );
+					infospotBm1.visible = false;
+					Bm.add(infospotBm1);
+infospotBm1.addEventListener('click', function(){
+ChangePanorama('Bo');
+});
+viewer.add( Bm );
+var Bn = new PANOLENS.ImagePanorama( "panoramas/Bn.jpg" );
+			Bn.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bn.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bn.addEventListener('click', function(e){
+			});
+
+var infospotBn0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBn0.position.set( -2919.38, -235.97, 4046.74 );
+					infospotBn0.visible = false;
+					Bn.add(infospotBn0);
+infospotBn0.addEventListener('click', function(){
+ChangePanorama('Bo');
+});
+viewer.add( Bn );
+var Bo = new PANOLENS.ImagePanorama( "panoramas/Bo.jpg" );
+			Bo.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bo.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bo.addEventListener('click', function(e){
+			});
+
+var infospotBo0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBo0.position.set( 4303.90, -368.38, 2513.84 );
+					infospotBo0.visible = false;
+					Bo.add(infospotBo0);
+infospotBo0.addEventListener('click', function(){
+ChangePanorama('Bm');
+});
+var infospotBo1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBo1.position.set( 2704.72, -435.59, -4172.73 );
+					infospotBo1.visible = false;
+					Bo.add(infospotBo1);
+infospotBo1.addEventListener('click', function(){
+ChangePanorama('Bn');
+});
+viewer.add( Bo );
+var Bp = new PANOLENS.ImagePanorama( "panoramas/Bp.jpg" );
+			Bp.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bp.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bp.addEventListener('click', function(e){
+			});
+
+var infospotBp0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBp0.position.set( -1375.74, -315.42, 4787.85 );
+					infospotBp0.visible = false;
+					Bp.add(infospotBp0);
+infospotBp0.addEventListener('click', function(){
+ChangePanorama('Bpp');
+});
+var infospotBp1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBp1.position.set( 1709.86, -432.42, -4670.46 );
+					infospotBp1.visible = false;
+					Bp.add(infospotBp1);
+infospotBp1.addEventListener('click', function(){
+ChangePanorama('Bo');
+});
+viewer.add( Bp );
+var Bpp = new PANOLENS.ImagePanorama( "panoramas/Bpp.jpg" );
+			Bpp.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bpp.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bpp.addEventListener('click', function(e){
+			});
+
+var infospotBpp0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBpp0.position.set( 4950.14, -311.30, -586.44 );
+					infospotBpp0.visible = false;
+					Bpp.add(infospotBpp0);
+infospotBpp0.addEventListener('click', function(){
+ChangePanorama('Bp');
+});
+var infospotBpp1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBpp1.position.set( -195.72, -616.09, 4947.84 );
+					infospotBpp1.visible = false;
+					Bpp.add(infospotBpp1);
+infospotBpp1.addEventListener('click', function(){
+ChangePanorama('Bj');
+});
+var infospotBpp2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBpp2.position.set( -1791.27, -405.50, -4642.62 );
+					infospotBpp2.visible = false;
+					Bpp.add(infospotBpp2);
+infospotBpp2.addEventListener('click', function(){
+ChangePanorama('Bg');
+});
+var infospotBpp3 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBpp3.position.set( -4270.68, -439.11, -2553.13 );
+					infospotBpp3.visible = false;
+					Bpp.add(infospotBpp3);
+infospotBpp3.addEventListener('click', function(){
+ChangePanorama('Bdd');
+});
+viewer.add( Bpp );
+var Bq = new PANOLENS.ImagePanorama( "panoramas/Bq.JPG" );
+			Bq.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bq.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bq.addEventListener('click', function(e){
+			});
+
+var infospotBq0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBq0.position.set( 205.36, -657.98, -4942.38 );
+					infospotBq0.visible = false;
+					Bq.add(infospotBq0);
+infospotBq0.addEventListener('click', function(){
+ChangePanorama('Bk');
+});
+var infospotBq1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBq1.position.set( 83.24, -174.72, 4988.77 );
+					infospotBq1.visible = false;
+					Bq.add(infospotBq1);
+infospotBq1.addEventListener('click', function(){
+ChangePanorama('Br');
+});
+viewer.add( Bq );
+var Br = new PANOLENS.ImagePanorama( "panoramas/Br.JPG" );
+			Br.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Br.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Br.addEventListener('click', function(e){
+			});
+
+var infospotBr0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBr0.position.set( 4980.86, -153.80, -249.81 );
+					infospotBr0.visible = false;
+					Br.add(infospotBr0);
+infospotBr0.addEventListener('click', function(){
+ChangePanorama('Bs');
+});
+var infospotBr1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBr1.position.set( -4970.80, -385.85, 267.82 );
+					infospotBr1.visible = false;
+					Br.add(infospotBr1);
+infospotBr1.addEventListener('click', function(){
+ChangePanorama('Bq');
+});
+var infospotBr2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBr2.position.set( -230.94, -566.86, -4951.82 );
+					infospotBr2.visible = false;
+					Br.add(infospotBr2);
+infospotBr2.addEventListener('click', function(){
+ChangePanorama('By');
+});
+viewer.add( Br );
+var Bs = new PANOLENS.ImagePanorama( "panoramas/Bs.JPG" );
+			Bs.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bs.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bs.addEventListener('click', function(e){
+			});
+
+var infospotBs0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBs0.position.set( -54.96, -283.27, -4985.99 );
+					infospotBs0.visible = false;
+					Bs.add(infospotBs0);
+infospotBs0.addEventListener('click', function(){
+ChangePanorama('Bt');
+});
+var infospotBs1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBs1.position.set( 130.33, -177.81, 4986.18 );
+					infospotBs1.visible = false;
+					Bs.add(infospotBs1);
+infospotBs1.addEventListener('click', function(){
+ChangePanorama('Br');
+});
+viewer.add( Bs );
+var Bt = new PANOLENS.ImagePanorama( "panoramas/Bt.JPG" );
+			Bt.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bt.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bt.addEventListener('click', function(e){
+			});
+
+var infospotBt0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBt0.position.set( 4974.18, -286.85, 277.67 );
+					infospotBt0.visible = false;
+					Bt.add(infospotBt0);
+infospotBt0.addEventListener('click', function(){
+ChangePanorama('Bu');
+});
+var infospotBt1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBt1.position.set( -4973.07, -341.30, -257.97 );
+					infospotBt1.visible = false;
+					Bt.add(infospotBt1);
+infospotBt1.addEventListener('click', function(){
+ChangePanorama('Bs');
+});
+viewer.add( Bt );
+var Bu = new PANOLENS.ImagePanorama( "panoramas/Bu.JPG" );
+			Bu.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bu.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bu.addEventListener('click', function(e){
+			});
+
+var infospotBu0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBu0.position.set( 4931.56, -526.08, -582.36 );
+					infospotBu0.visible = false;
+					Bu.add(infospotBu0);
+infospotBu0.addEventListener('click', function(){
+ChangePanorama('Bv');
+});
+var infospotBu1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBu1.position.set( -4965.91, -232.17, 476.39 );
+					infospotBu1.visible = false;
+					Bu.add(infospotBu1);
+infospotBu1.addEventListener('click', function(){
+ChangePanorama('Bt');
+});
+viewer.add( Bu );
+var Bv = new PANOLENS.ImagePanorama( "panoramas/Bv.JPG" );
+			Bv.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bv.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bv.addEventListener('click', function(e){
+			});
+
+var infospotBv0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBv0.position.set( 4973.34, -265.52, -309.70 );
+					infospotBv0.visible = false;
+					Bv.add(infospotBv0);
+infospotBv0.addEventListener('click', function(){
+ChangePanorama('Bw');
+});
+var infospotBv1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBv1.position.set( -4973.19, -317.95, 273.12 );
+					infospotBv1.visible = false;
+					Bv.add(infospotBv1);
+infospotBv1.addEventListener('click', function(){
+ChangePanorama('Bu');
+});
+viewer.add( Bv );
+var Bw = new PANOLENS.ImagePanorama( "panoramas/Bw.JPG" );
+			Bw.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bw.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bw.addEventListener('click', function(e){
+			});
+
+var infospotBw0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBw0.position.set( 4552.36, -374.47, -2031.47 );
+					infospotBw0.visible = false;
+					Bw.add(infospotBw0);
+infospotBw0.addEventListener('click', function(){
+ChangePanorama('Bx');
+});
+var infospotBw1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBw1.position.set( -590.36, -464.75, -4937.63 );
+					infospotBw1.visible = false;
+					Bw.add(infospotBw1);
+infospotBw1.addEventListener('click', function(){
+ChangePanorama('Bv');
+});
+var infospotBw2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBw2.position.set( -4951.40, -533.25, -314.91 );
+					infospotBw2.visible = false;
+					Bw.add(infospotBw2);
+infospotBw2.addEventListener('click', function(){
+ChangePanorama('As');
+});
+viewer.add( Bw );
+var Bx = new PANOLENS.ImagePanorama( "panoramas/Bx.JPG" );
+			Bx.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bx.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bx.addEventListener('click', function(e){
+			});
+
+var infospotBx0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBx0.position.set( 275.31, -125.55, 4980.64 );
+					infospotBx0.visible = false;
+					Bx.add(infospotBx0);
+infospotBx0.addEventListener('click', function(){
+ChangePanorama('By');
+});
+var infospotBx1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBx1.position.set( 3952.75, -504.95, -3007.33 );
+					infospotBx1.visible = false;
+					Bx.add(infospotBx1);
+infospotBx1.addEventListener('click', function(){
+ChangePanorama('Bw');
+});
+var infospotBx2 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBx2.position.set( 4986.46, -290.91, 40.22 );
+					infospotBx2.visible = false;
+					Bx.add(infospotBx2);
+infospotBx2.addEventListener('click', function(){
+ChangePanorama('As');
+});
+viewer.add( Bx );
+var By = new PANOLENS.ImagePanorama( "panoramas/By.JPG" );
+			By.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			By.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			By.addEventListener('click', function(e){
+			});
+
+var infospotBy0 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBy0.position.set( 4972.20, -351.62, -266.86 );
+					infospotBy0.visible = false;
+					By.add(infospotBy0);
+infospotBy0.addEventListener('click', function(){
+ChangePanorama('Br');
+});
+var infospotBy1 = new PANOLENS.Infospot( 512, hotspotIcons[0].data, true );
+					infospotBy1.position.set( -12.68, -342.46, -4985.88 );
+					infospotBy1.visible = false;
+					By.add(infospotBy1);
+infospotBy1.addEventListener('click', function(){
+ChangePanorama('Bx');
+});
+viewer.add( By );
+var Bz = new PANOLENS.ImagePanorama( "panoramas/Bz.jpg" );
+			Bz.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bz.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bz.addEventListener('click', function(e){
+			});
+
+viewer.add( Bz );
+var Bzz = new PANOLENS.ImagePanorama( "panoramas/Bzz.jpg" );
+			Bzz.addEventListener('progress', function(e){
+				$("#loading").show();
+			});
+			Bzz.addEventListener('load', function(e){
+				//$("#loading").fadeOut();
+			});
+			Bzz.addEventListener('click', function(e){
+			});
+
+viewer.add( Bzz );
+$(document).ready(function(){ ChangePanorama('As'); });
+
+/*panoramas-end*/
+            
+			
+			function hideTemp(){
+				$("#tmp").fadeOut();
+				setTimeout(function(){
+					$("#tmpcontent").html("");
+				},1000);
+			}
+			
+			function showMedia(type, content){
+				switch(type){
+					case 1 :
+						//Image
+						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
+						$("#tmp").fadeIn();
+						break;
+					case 2 :
+						//Video
+						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
+						$("#tmp").fadeIn();
+						break;
+					case 3 :
+						//Audio
+						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
+						$("#tmp").fadeIn();
+						break;
+					case 4 :
+						//PDF
+						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 99%;'></iframe>");
+						$("#tmp").fadeIn();
+						break;
+				}
+			}
+			
+			
+			
+			//Update Callback
+			viewer.addUpdateCallback(function(){
+				
+				/*viewerupdatecallback*/
+if(viewer.panorama == A){
+ShowMyInfospot(infospotA0, 'infospotA0');
+}
+
+if(viewer.panorama == B){
+ShowMyInfospot(infospotB0, 'infospotB0');
+ShowMyInfospot(infospotB1, 'infospotB1');
+}
+
+if(viewer.panorama == C){
+ShowMyInfospot(infospotC0, 'infospotC0');
+ShowMyInfospot(infospotC1, 'infospotC1');
+}
+
+if(viewer.panorama == D){
+ShowMyInfospot(infospotD0, 'infospotD0');
+ShowMyInfospot(infospotD1, 'infospotD1');
+}
+
+if(viewer.panorama == E){
+ShowMyInfospot(infospotE0, 'infospotE0');
+ShowMyInfospot(infospotE1, 'infospotE1');
+}
+
+if(viewer.panorama == F){
+ShowMyInfospot(infospotF0, 'infospotF0');
+ShowMyInfospot(infospotF1, 'infospotF1');
+}
+
+if(viewer.panorama == G){
+ShowMyInfospot(infospotG0, 'infospotG0');
+ShowMyInfospot(infospotG1, 'infospotG1');
+}
+
+if(viewer.panorama == H){
+ShowMyInfospot(infospotH0, 'infospotH0');
+ShowMyInfospot(infospotH1, 'infospotH1');
+}
+
+if(viewer.panorama == I){
+ShowMyInfospot(infospotI0, 'infospotI0');
+ShowMyInfospot(infospotI1, 'infospotI1');
+}
+
+if(viewer.panorama == J){
+ShowMyInfospot(infospotJ0, 'infospotJ0');
+ShowMyInfospot(infospotJ1, 'infospotJ1');
+}
+
+if(viewer.panorama == K){
+ShowMyInfospot(infospotK0, 'infospotK0');
+ShowMyInfospot(infospotK1, 'infospotK1');
+}
+
+if(viewer.panorama == L){
+ShowMyInfospot(infospotL0, 'infospotL0');
+ShowMyInfospot(infospotL1, 'infospotL1');
+}
+
+if(viewer.panorama == M){
+ShowMyInfospot(infospotM0, 'infospotM0');
+ShowMyInfospot(infospotM1, 'infospotM1');
+ShowMyInfospot(infospotM2, 'infospotM2');
+}
+
+if(viewer.panorama == N){
+ShowMyInfospot(infospotN0, 'infospotN0');
+ShowMyInfospot(infospotN1, 'infospotN1');
+ShowMyInfospot(infospotN2, 'infospotN2');
+}
+
+if(viewer.panorama == O){
+ShowMyInfospot(infospotO0, 'infospotO0');
+ShowMyInfospot(infospotO1, 'infospotO1');
+ShowMyInfospot(infospotO2, 'infospotO2');
+}
+
+if(viewer.panorama == P){
+ShowMyInfospot(infospotP0, 'infospotP0');
+}
+
+if(viewer.panorama == Q){
+ShowMyInfospot(infospotQ0, 'infospotQ0');
+ShowMyInfospot(infospotQ1, 'infospotQ1');
+}
+
+if(viewer.panorama == R){
+ShowMyInfospot(infospotR0, 'infospotR0');
+ShowMyInfospot(infospotR1, 'infospotR1');
+ShowMyInfospot(infospotR2, 'infospotR2');
+ShowMyInfospot(infospotR3, 'infospotR3');
+}
+
+if(viewer.panorama == S){
+ShowMyInfospot(infospotS0, 'infospotS0');
+ShowMyInfospot(infospotS1, 'infospotS1');
+}
+
+if(viewer.panorama == T){
+ShowMyInfospot(infospotT0, 'infospotT0');
+ShowMyInfospot(infospotT1, 'infospotT1');
+}
+
+if(viewer.panorama == U){
+ShowMyInfospot(infospotU0, 'infospotU0');
+ShowMyInfospot(infospotU1, 'infospotU1');
+ShowMyInfospot(infospotU2, 'infospotU2');
+}
+
+if(viewer.panorama == V){
+ShowMyInfospot(infospotV0, 'infospotV0');
+ShowMyInfospot(infospotV1, 'infospotV1');
+}
+
+if(viewer.panorama == W){
+ShowMyInfospot(infospotW0, 'infospotW0');
+ShowMyInfospot(infospotW1, 'infospotW1');
+}
+
+if(viewer.panorama == X){
+ShowMyInfospot(infospotX0, 'infospotX0');
+ShowMyInfospot(infospotX1, 'infospotX1');
+ShowMyInfospot(infospotX2, 'infospotX2');
+ShowMyInfospot(infospotX3, 'infospotX3');
+}
+
+if(viewer.panorama == Y){
+ShowMyInfospot(infospotY0, 'infospotY0');
+}
+
+if(viewer.panorama == Z){
+ShowMyInfospot(infospotZ0, 'infospotZ0');
+}
+
+if(viewer.panorama == Aa){
+ShowMyInfospot(infospotAa0, 'infospotAa0');
+ShowMyInfospot(infospotAa1, 'infospotAa1');
+ShowMyInfospot(infospotAa2, 'infospotAa2');
+ShowMyInfospot(infospotAa3, 'infospotAa3');
+}
+
+if(viewer.panorama == Ab){
+ShowMyInfospot(infospotAb0, 'infospotAb0');
+ShowMyInfospot(infospotAb1, 'infospotAb1');
+ShowMyInfospot(infospotAb2, 'infospotAb2');
+}
+
+if(viewer.panorama == Ac){
+ShowMyInfospot(infospotAc0, 'infospotAc0');
+ShowMyInfospot(infospotAc1, 'infospotAc1');
+ShowMyInfospot(infospotAc2, 'infospotAc2');
+}
+
+if(viewer.panorama == Ad){
+ShowMyInfospot(infospotAd0, 'infospotAd0');
+ShowMyInfospot(infospotAd1, 'infospotAd1');
+ShowMyInfospot(infospotAd2, 'infospotAd2');
+ShowMyInfospot(infospotAd3, 'infospotAd3');
+}
+
+if(viewer.panorama == Ae){
+ShowMyInfospot(infospotAe0, 'infospotAe0');
+ShowMyInfospot(infospotAe1, 'infospotAe1');
+ShowMyInfospot(infospotAe2, 'infospotAe2');
+}
+
+if(viewer.panorama == Af){
+ShowMyInfospot(infospotAf0, 'infospotAf0');
+ShowMyInfospot(infospotAf1, 'infospotAf1');
+ShowMyInfospot(infospotAf2, 'infospotAf2');
+}
+
+if(viewer.panorama == Ag){
+ShowMyInfospot(infospotAg0, 'infospotAg0');
+ShowMyInfospot(infospotAg1, 'infospotAg1');
+ShowMyInfospot(infospotAg2, 'infospotAg2');
+}
+
+if(viewer.panorama == Ah){
+ShowMyInfospot(infospotAh0, 'infospotAh0');
+ShowMyInfospot(infospotAh1, 'infospotAh1');
+ShowMyInfospot(infospotAh2, 'infospotAh2');
+}
+
+if(viewer.panorama == Ai){
+ShowMyInfospot(infospotAi0, 'infospotAi0');
+ShowMyInfospot(infospotAi1, 'infospotAi1');
+ShowMyInfospot(infospotAi2, 'infospotAi2');
+}
+
+if(viewer.panorama == Aj){
+ShowMyInfospot(infospotAj0, 'infospotAj0');
+ShowMyInfospot(infospotAj1, 'infospotAj1');
+ShowMyInfospot(infospotAj2, 'infospotAj2');
+}
+
+if(viewer.panorama == Ak){
+ShowMyInfospot(infospotAk0, 'infospotAk0');
+ShowMyInfospot(infospotAk1, 'infospotAk1');
+ShowMyInfospot(infospotAk2, 'infospotAk2');
+}
+
+if(viewer.panorama == Al){
+ShowMyInfospot(infospotAl0, 'infospotAl0');
+ShowMyInfospot(infospotAl1, 'infospotAl1');
+ShowMyInfospot(infospotAl2, 'infospotAl2');
+}
+
+if(viewer.panorama == Am){
+ShowMyInfospot(infospotAm0, 'infospotAm0');
+ShowMyInfospot(infospotAm1, 'infospotAm1');
+ShowMyInfospot(infospotAm2, 'infospotAm2');
+}
+
+if(viewer.panorama == An){
+ShowMyInfospot(infospotAn0, 'infospotAn0');
+ShowMyInfospot(infospotAn1, 'infospotAn1');
+ShowMyInfospot(infospotAn2, 'infospotAn2');
+}
+
+if(viewer.panorama == Ao){
+ShowMyInfospot(infospotAo0, 'infospotAo0');
+ShowMyInfospot(infospotAo1, 'infospotAo1');
+ShowMyInfospot(infospotAo2, 'infospotAo2');
+}
+
+if(viewer.panorama == Ap){
+ShowMyInfospot(infospotAp0, 'infospotAp0');
+ShowMyInfospot(infospotAp1, 'infospotAp1');
+}
+
+if(viewer.panorama == Aq){
+ShowMyInfospot(infospotAq0, 'infospotAq0');
+ShowMyInfospot(infospotAq1, 'infospotAq1');
+ShowMyInfospot(infospotAq2, 'infospotAq2');
+ShowMyInfospot(infospotAq3, 'infospotAq3');
+}
+
+if(viewer.panorama == Ar){
+ShowMyInfospot(infospotAr0, 'infospotAr0');
+ShowMyInfospot(infospotAr1, 'infospotAr1');
+ShowMyInfospot(infospotAr2, 'infospotAr2');
+ShowMyInfospot(infospotAr3, 'infospotAr3');
+}
+
+if(viewer.panorama == As){
+ShowMyInfospot(infospotAs0, 'infospotAs0');
+ShowMyInfospot(infospotAs1, 'infospotAs1');
+ShowMyInfospot(infospotAs2, 'infospotAs2');
+}
+
+if(viewer.panorama == At){
+ShowMyInfospot(infospotAt0, 'infospotAt0');
+ShowMyInfospot(infospotAt1, 'infospotAt1');
+}
+
+if(viewer.panorama == Au){
+ShowMyInfospot(infospotAu0, 'infospotAu0');
+ShowMyInfospot(infospotAu1, 'infospotAu1');
+}
+
+if(viewer.panorama == Av){
+ShowMyInfospot(infospotAv0, 'infospotAv0');
+ShowMyInfospot(infospotAv1, 'infospotAv1');
+ShowMyInfospot(infospotAv2, 'infospotAv2');
+}
+
+if(viewer.panorama == Aw){
+ShowMyInfospot(infospotAw0, 'infospotAw0');
+ShowMyInfospot(infospotAw1, 'infospotAw1');
+}
+
+if(viewer.panorama == Ax){
+ShowMyInfospot(infospotAx0, 'infospotAx0');
+ShowMyInfospot(infospotAx1, 'infospotAx1');
+ShowMyInfospot(infospotAx2, 'infospotAx2');
+}
+
+if(viewer.panorama == Ay){
+ShowMyInfospot(infospotAy0, 'infospotAy0');
+ShowMyInfospot(infospotAy1, 'infospotAy1');
+ShowMyInfospot(infospotAy2, 'infospotAy2');
+}
+
+if(viewer.panorama == Az){
+ShowMyInfospot(infospotAz0, 'infospotAz0');
+ShowMyInfospot(infospotAz1, 'infospotAz1');
+ShowMyInfospot(infospotAz2, 'infospotAz2');
+}
+
+if(viewer.panorama == Ba){
+ShowMyInfospot(infospotBa0, 'infospotBa0');
+ShowMyInfospot(infospotBa1, 'infospotBa1');
+}
+
+if(viewer.panorama == Bb){
+ShowMyInfospot(infospotBb0, 'infospotBb0');
+ShowMyInfospot(infospotBb1, 'infospotBb1');
+ShowMyInfospot(infospotBb2, 'infospotBb2');
+}
+
+if(viewer.panorama == Bc){
+ShowMyInfospot(infospotBc0, 'infospotBc0');
+ShowMyInfospot(infospotBc1, 'infospotBc1');
+}
+
+if(viewer.panorama == Bd){
+ShowMyInfospot(infospotBd0, 'infospotBd0');
+ShowMyInfospot(infospotBd1, 'infospotBd1');
+}
+
+if(viewer.panorama == Bdd){
+ShowMyInfospot(infospotBdd0, 'infospotBdd0');
+ShowMyInfospot(infospotBdd1, 'infospotBdd1');
+ShowMyInfospot(infospotBdd2, 'infospotBdd2');
+}
+
+if(viewer.panorama == Bf){
+ShowMyInfospot(infospotBf0, 'infospotBf0');
+ShowMyInfospot(infospotBf1, 'infospotBf1');
+}
+
+if(viewer.panorama == Bg){
+ShowMyInfospot(infospotBg0, 'infospotBg0');
+ShowMyInfospot(infospotBg1, 'infospotBg1');
+ShowMyInfospot(infospotBg2, 'infospotBg2');
+ShowMyInfospot(infospotBg3, 'infospotBg3');
+}
+
+if(viewer.panorama == Bh){
+ShowMyInfospot(infospotBh0, 'infospotBh0');
+}
+
+if(viewer.panorama == Bi){
+}
+
+if(viewer.panorama == Bj){
+ShowMyInfospot(infospotBj0, 'infospotBj0');
+ShowMyInfospot(infospotBj1, 'infospotBj1');
+ShowMyInfospot(infospotBj2, 'infospotBj2');
+}
+
+if(viewer.panorama == Bk){
+ShowMyInfospot(infospotBk0, 'infospotBk0');
+ShowMyInfospot(infospotBk1, 'infospotBk1');
+ShowMyInfospot(infospotBk2, 'infospotBk2');
+}
+
+if(viewer.panorama == Bl){
+ShowMyInfospot(infospotBl0, 'infospotBl0');
+ShowMyInfospot(infospotBl1, 'infospotBl1');
+}
+
+if(viewer.panorama == Bm){
+ShowMyInfospot(infospotBm0, 'infospotBm0');
+ShowMyInfospot(infospotBm1, 'infospotBm1');
+}
+
+if(viewer.panorama == Bn){
+ShowMyInfospot(infospotBn0, 'infospotBn0');
+}
+
+if(viewer.panorama == Bo){
+ShowMyInfospot(infospotBo0, 'infospotBo0');
+ShowMyInfospot(infospotBo1, 'infospotBo1');
+}
+
+if(viewer.panorama == Bp){
+ShowMyInfospot(infospotBp0, 'infospotBp0');
+ShowMyInfospot(infospotBp1, 'infospotBp1');
+}
+
+if(viewer.panorama == Bpp){
+ShowMyInfospot(infospotBpp0, 'infospotBpp0');
+ShowMyInfospot(infospotBpp1, 'infospotBpp1');
+ShowMyInfospot(infospotBpp2, 'infospotBpp2');
+ShowMyInfospot(infospotBpp3, 'infospotBpp3');
+}
+
+if(viewer.panorama == Bq){
+ShowMyInfospot(infospotBq0, 'infospotBq0');
+ShowMyInfospot(infospotBq1, 'infospotBq1');
+}
+
+if(viewer.panorama == Br){
+ShowMyInfospot(infospotBr0, 'infospotBr0');
+ShowMyInfospot(infospotBr1, 'infospotBr1');
+ShowMyInfospot(infospotBr2, 'infospotBr2');
+}
+
+if(viewer.panorama == Bs){
+ShowMyInfospot(infospotBs0, 'infospotBs0');
+ShowMyInfospot(infospotBs1, 'infospotBs1');
+}
+
+if(viewer.panorama == Bt){
+ShowMyInfospot(infospotBt0, 'infospotBt0');
+ShowMyInfospot(infospotBt1, 'infospotBt1');
+}
+
+if(viewer.panorama == Bu){
+ShowMyInfospot(infospotBu0, 'infospotBu0');
+ShowMyInfospot(infospotBu1, 'infospotBu1');
+}
+
+if(viewer.panorama == Bv){
+ShowMyInfospot(infospotBv0, 'infospotBv0');
+ShowMyInfospot(infospotBv1, 'infospotBv1');
+}
+
+if(viewer.panorama == Bw){
+ShowMyInfospot(infospotBw0, 'infospotBw0');
+ShowMyInfospot(infospotBw1, 'infospotBw1');
+ShowMyInfospot(infospotBw2, 'infospotBw2');
+}
+
+if(viewer.panorama == Bx){
+ShowMyInfospot(infospotBx0, 'infospotBx0');
+ShowMyInfospot(infospotBx1, 'infospotBx1');
+ShowMyInfospot(infospotBx2, 'infospotBx2');
+}
+
+if(viewer.panorama == By){
+ShowMyInfospot(infospotBy0, 'infospotBy0');
+ShowMyInfospot(infospotBy1, 'infospotBy1');
+}
+
+if(viewer.panorama == Bz){
+}
+
+if(viewer.panorama == Bzz){
+}
+/*viewerupdatecallback-end*/
+				
+				
+			});
+			
+			
+			
+			var hotspotsvisible = true;
+			function ShowMyInfospot(hs, elid){
+				var thehs = toScreenPosition(hs);
+				if(thehs.z < 1){
+					$("#" + elid).css({
+						"top" : (thehs.y - ($("#" + elid).height()/2)) + "px",
+						"left" : (thehs.x - ($("#" + elid).width()/2)) + "px",
+					});
+					if(hotspotsvisible)
+						$("#" + elid).show();
+				}else{
+					$("#" + elid).hide();
+				}
+				
+			}
+			
+			function toScreenPosition(obj)
+			{
+				var vector = new THREE.Vector3();
+				var widthHalf = 0.5 * innerWidth;
+				var heightHalf = 0.5 * innerHeight;
+				
+				//obj.updateMatrixWorld();				
+				vector.setFromMatrixPosition(obj.matrixWorld);
+				
+				
+				vector.project(viewer.camera);
+
+				vector.x = ( vector.x * widthHalf ) + widthHalf;
+				vector.y = - ( vector.y * heightHalf ) + heightHalf;
+
+				
+				return { 
+					x: vector.x,
+					y: vector.y,
+					z: vector.z,
+				};
+
+			};
+			
+			var currentPanorama;
+			function ChangePanorama(panorama){
+				currentPanorama = panorama;
+				HideInfospots(); 
+				$("#loading").fadeIn();
+				//$(".customhotspot").fadeOut();
+				setTimeout(function(){
+					viewer.setPanorama(window[panorama]);
+				}, 100);
+				setTimeout(function(){
+					$("#" + panorama).fadeIn();
+					$("#loading").fadeOut();
+				}, 1000);
+				
+			}
+			
+			
+			
+			function HideInfospots(){
+				$(".customhotspot").fadeOut();
+			}
+
+			/*customjs*/
+function chclickinfospotA0(){ 
+ChangePanorama('B');
+}
+
+function chclickinfospotB0(){ 
+ChangePanorama('C');
+}
+
+function chclickinfospotB1(){ 
+ChangePanorama('A');
+}
+
+function chclickinfospotC0(){ 
+ChangePanorama('D');
+}
+
+function chclickinfospotC1(){ 
+ChangePanorama('B');
+}
+
+function chclickinfospotD0(){ 
+ChangePanorama('E');
+}
+
+function chclickinfospotD1(){ 
+ChangePanorama('C');
+}
+
+function chclickinfospotE0(){ 
+ChangePanorama('F');
+}
+
+function chclickinfospotE1(){ 
+ChangePanorama('D');
+}
+
+function chclickinfospotF0(){ 
+ChangePanorama('E');
+}
+
+function chclickinfospotF1(){ 
+ChangePanorama('G');
+}
+
+function chclickinfospotG0(){ 
+ChangePanorama('F');
+}
+
+function chclickinfospotG1(){ 
+ChangePanorama('H');
+}
+
+function chclickinfospotH0(){ 
+ChangePanorama('I');
+}
+
+function chclickinfospotH1(){ 
+ChangePanorama('G');
+}
+
+function chclickinfospotI0(){ 
+ChangePanorama('J');
+}
+
+function chclickinfospotI1(){ 
+ChangePanorama('H');
+}
+
+function chclickinfospotJ0(){ 
+ChangePanorama('K');
+}
+
+function chclickinfospotJ1(){ 
+ChangePanorama('I');
+}
+
+function chclickinfospotK0(){ 
+ChangePanorama('L');
+}
+
+function chclickinfospotK1(){ 
+ChangePanorama('J');
+}
+
+function chclickinfospotL0(){ 
+ChangePanorama('M');
+}
+
+function chclickinfospotL1(){ 
+ChangePanorama('K');
+}
+
+function chclickinfospotM0(){ 
+ChangePanorama('N');
+}
+
+function chclickinfospotM1(){ 
+ChangePanorama('L');
+}
+
+function chclickinfospotM2(){ 
+ChangePanorama('Aq');
+}
+
+function chclickinfospotN0(){ 
+ChangePanorama('M');
+}
+
+function chclickinfospotN1(){ 
+ChangePanorama('O');
+}
+
+function chclickinfospotN2(){ 
+ChangePanorama('Aq');
+}
+
+function chclickinfospotO0(){ 
+ChangePanorama('P');
+}
+
+function chclickinfospotO1(){ 
+ChangePanorama('N');
+}
+
+function chclickinfospotO2(){ 
+ChangePanorama('Q');
+}
+
+function chclickinfospotP0(){ 
+ChangePanorama('O');
+}
+
+function chclickinfospotQ0(){ 
+ChangePanorama('O');
+}
+
+function chclickinfospotQ1(){ 
+ChangePanorama('R');
+}
+
+function chclickinfospotR0(){ 
+ChangePanorama('S');
+}
+
+function chclickinfospotR1(){ 
+ChangePanorama('Q');
+}
+
+function chclickinfospotR2(){ 
+ChangePanorama('T');
+}
+
+function chclickinfospotR3(){ 
+ChangePanorama('Ar');
+}
+
+function chclickinfospotS0(){ 
+ChangePanorama('R');
+}
+
+function chclickinfospotS1(){ 
+ChangePanorama('As');
+}
+
+function chclickinfospotT0(){ 
+ChangePanorama('R');
+}
+
+function chclickinfospotT1(){ 
+ChangePanorama('U');
+}
+
+function chclickinfospotU0(){ 
+ChangePanorama('V');
+}
+
+function chclickinfospotU1(){ 
+ChangePanorama('T');
+}
+
+function chclickinfospotU2(){ 
+ChangePanorama('S');
+}
+
+function chclickinfospotV0(){ 
+ChangePanorama('U');
+}
+
+function chclickinfospotV1(){ 
+ChangePanorama('W');
+}
+
+function chclickinfospotW0(){ 
+ChangePanorama('V');
+}
+
+function chclickinfospotW1(){ 
+ChangePanorama('X');
+}
+
+function chclickinfospotX0(){ 
+ChangePanorama('W');
+}
+
+function chclickinfospotX1(){ 
+ChangePanorama('Y');
+}
+
+function chclickinfospotX2(){ 
+ChangePanorama('Z');
+}
+
+function chclickinfospotX3(){ 
+ChangePanorama('Aa');
+}
+
+function chclickinfospotY0(){ 
+ChangePanorama('X');
+}
+
+function chclickinfospotZ0(){ 
+ChangePanorama('X');
+}
+
+function chclickinfospotAa0(){ 
+ChangePanorama('X');
+}
+
+function chclickinfospotAa1(){ 
+ChangePanorama('Z');
+}
+
+function chclickinfospotAa2(){ 
+ChangePanorama('Ab');
+}
+
+function chclickinfospotAa3(){ 
+ChangePanorama('Ac');
+}
+
+function chclickinfospotAb0(){ 
+ChangePanorama('Aa');
+}
+
+function chclickinfospotAb1(){ 
+ChangePanorama('Ag');
+}
+
+function chclickinfospotAb2(){ 
+ChangePanorama('Ad');
+}
+
+function chclickinfospotAc0(){ 
+ChangePanorama('Aa');
+}
+
+function chclickinfospotAc1(){ 
+ChangePanorama('Ad');
+}
+
+function chclickinfospotAc2(){ 
+ChangePanorama('Ae');
+}
+
+function chclickinfospotAd0(){ 
+ChangePanorama('Ac');
+}
+
+function chclickinfospotAd1(){ 
+ChangePanorama('Ae');
+}
+
+function chclickinfospotAd2(){ 
+ChangePanorama('Ai');
+}
+
+function chclickinfospotAd3(){ 
+ChangePanorama('Ab');
+}
+
+function chclickinfospotAe0(){ 
+ChangePanorama('Ad');
+}
+
+function chclickinfospotAe1(){ 
+ChangePanorama('Af');
+}
+
+function chclickinfospotAe2(){ 
+ChangePanorama('Ac');
+}
+
+function chclickinfospotAf0(){ 
+ChangePanorama('Ae');
+}
+
+function chclickinfospotAf1(){ 
+ChangePanorama('Aj');
+}
+
+function chclickinfospotAf2(){ 
+ChangePanorama('Ag');
+}
+
+function chclickinfospotAg0(){ 
+ChangePanorama('Ab');
+}
+
+function chclickinfospotAg1(){ 
+ChangePanorama('Ah');
+}
+
+function chclickinfospotAg2(){ 
+ChangePanorama('Af');
+}
+
+function chclickinfospotAh0(){ 
+ChangePanorama('Ag');
+}
+
+function chclickinfospotAh1(){ 
+ChangePanorama('Ai');
+}
+
+function chclickinfospotAh2(){ 
+ChangePanorama('Am');
+}
+
+function chclickinfospotAi0(){ 
+ChangePanorama('Ad');
+}
+
+function chclickinfospotAi1(){ 
+ChangePanorama('Al');
+}
+
+function chclickinfospotAi2(){ 
+ChangePanorama('Aj');
+}
+
+function chclickinfospotAj0(){ 
+ChangePanorama('Ak');
+}
+
+function chclickinfospotAj1(){ 
+ChangePanorama('Af');
+}
+
+function chclickinfospotAj2(){ 
+ChangePanorama('Ai');
+}
+
+function chclickinfospotAk0(){ 
+ChangePanorama('Aj');
+}
+
+function chclickinfospotAk1(){ 
+ChangePanorama('Al');
+}
+
+function chclickinfospotAk2(){ 
+ChangePanorama('Ap');
+}
+
+function chclickinfospotAl0(){ 
+ChangePanorama('Am');
+}
+
+function chclickinfospotAl1(){ 
+ChangePanorama('Ai');
+}
+
+function chclickinfospotAl2(){ 
+ChangePanorama('Ak');
+}
+
+function chclickinfospotAm0(){ 
+ChangePanorama('Al');
+}
+
+function chclickinfospotAm1(){ 
+ChangePanorama('An');
+}
+
+function chclickinfospotAm2(){ 
+ChangePanorama('Ah');
+}
+
+function chclickinfospotAn0(){ 
+ChangePanorama('Am');
+}
+
+function chclickinfospotAn1(){ 
+ChangePanorama('Ao');
+}
+
+function chclickinfospotAn2(){ 
+ChangePanorama('Ar');
+}
+
+function chclickinfospotAo0(){ 
+ChangePanorama('An');
+}
+
+function chclickinfospotAo1(){ 
+ChangePanorama('R');
+}
+
+function chclickinfospotAo2(){ 
+ChangePanorama('Aq');
+}
+
+function chclickinfospotAp0(){ 
+ChangePanorama('Ak');
+}
+
+function chclickinfospotAp1(){ 
+ChangePanorama('Aq');
+}
+
+function chclickinfospotAq0(){ 
+ChangePanorama('Ao');
+}
+
+function chclickinfospotAq1(){ 
+ChangePanorama('M');
+}
+
+function chclickinfospotAq2(){ 
+ChangePanorama('N');
+}
+
+function chclickinfospotAq3(){ 
+ChangePanorama('Ap');
+}
+
+function chclickinfospotAr0(){ 
+ChangePanorama('R');
+}
+
+function chclickinfospotAr1(){ 
+ChangePanorama('T');
+}
+
+function chclickinfospotAr2(){ 
+ChangePanorama('As');
+}
+
+function chclickinfospotAr3(){ 
+ChangePanorama('An');
+}
+
+function chclickinfospotAs0(){ 
+ChangePanorama('Ar');
+}
+
+function chclickinfospotAs1(){ 
+ChangePanorama('At');
+}
+
+function chclickinfospotAs2(){ 
+ChangePanorama('Bw');
+}
+
+function chclickinfospotAt0(){ 
+ChangePanorama('As');
+}
+
+function chclickinfospotAt1(){ 
+ChangePanorama('Au');
+}
+
+function chclickinfospotAu0(){ 
+ChangePanorama('At');
+}
+
+function chclickinfospotAu1(){ 
+ChangePanorama('Av');
+}
+
+function chclickinfospotAv0(){ 
+ChangePanorama('Au');
+}
+
+function chclickinfospotAv1(){ 
+ChangePanorama('Aw');
+}
+
+function chclickinfospotAv2(){ 
+ChangePanorama('Ay');
+}
+
+function chclickinfospotAw0(){ 
+ChangePanorama('Av');
+}
+
+function chclickinfospotAw1(){ 
+ChangePanorama('Ax');
+}
+
+function chclickinfospotAx0(){ 
+ChangePanorama('Aw');
+}
+
+function chclickinfospotAx1(){ 
+ChangePanorama('Ay');
+}
+
+function chclickinfospotAx2(){ 
+ChangePanorama('Az');
+}
+
+function chclickinfospotAy0(){ 
+ChangePanorama('Ax');
+}
+
+function chclickinfospotAy1(){ 
+ChangePanorama('Av');
+}
+
+function chclickinfospotAy2(){ 
+ChangePanorama('Az');
+}
+
+function chclickinfospotAz0(){ 
+ChangePanorama('Ay');
+}
+
+function chclickinfospotAz1(){ 
+ChangePanorama('Ax');
+}
+
+function chclickinfospotAz2(){ 
+ChangePanorama('Ba');
+}
+
+function chclickinfospotBa0(){ 
+ChangePanorama('Az');
+}
+
+function chclickinfospotBa1(){ 
+ChangePanorama('Bb');
+}
+
+function chclickinfospotBb0(){ 
+ChangePanorama('Ba');
+}
+
+function chclickinfospotBb1(){ 
+ChangePanorama('Bc');
+}
+
+function chclickinfospotBb2(){ 
+ChangePanorama('Bdd');
+}
+
+function chclickinfospotBc0(){ 
+ChangePanorama('Bb');
+}
+
+function chclickinfospotBc1(){ 
+ChangePanorama('Bd');
+}
+
+function chclickinfospotBd0(){ 
+ChangePanorama('Bc');
+}
+
+function chclickinfospotBd1(){ 
+ChangePanorama('Bf');
+}
+
+function chclickinfospotBdd0(){ 
+ChangePanorama('Bb');
+}
+
+function chclickinfospotBdd1(){ 
+ChangePanorama('Bg');
+}
+
+function chclickinfospotBdd2(){ 
+ChangePanorama('Bi');
+}
+
+function chclickinfospotBf0(){ 
+ChangePanorama('Bd');
+}
+
+function chclickinfospotBf1(){ 
+ChangePanorama('Bg');
+}
+
+function chclickinfospotBg0(){ 
+ChangePanorama('Bf');
+}
+
+function chclickinfospotBg1(){ 
+ChangePanorama('Bh');
+}
+
+function chclickinfospotBg2(){ 
+ChangePanorama('Bpp');
+}
+
+function chclickinfospotBg3(){ 
+ChangePanorama('Bdd');
+}
+
+function chclickinfospotBh0(){ 
+ChangePanorama('Bg');
+}
+
+function chclickinfospotBj0(){ 
+ChangePanorama('Bpp');
+}
+
+function chclickinfospotBj1(){ 
+ChangePanorama('Bk');
+}
+
+function chclickinfospotBj2(){ 
+ChangePanorama('Bl');
+}
+
+function chclickinfospotBk0(){ 
+ChangePanorama('Bj');
+}
+
+function chclickinfospotBk1(){ 
+ChangePanorama('Bl');
+}
+
+function chclickinfospotBk2(){ 
+ChangePanorama('Bq');
+}
+
+function chclickinfospotBl0(){ 
+ChangePanorama('Bk');
+}
+
+function chclickinfospotBl1(){ 
+ChangePanorama('Bm');
+}
+
+function chclickinfospotBm0(){ 
+ChangePanorama('Bl');
+}
+
+function chclickinfospotBm1(){ 
+ChangePanorama('Bo');
+}
+
+function chclickinfospotBn0(){ 
+ChangePanorama('Bo');
+}
+
+function chclickinfospotBo0(){ 
+ChangePanorama('Bm');
+}
+
+function chclickinfospotBo1(){ 
+ChangePanorama('Bn');
+}
+
+function chclickinfospotBp0(){ 
+ChangePanorama('Bpp');
+}
+
+function chclickinfospotBp1(){ 
+ChangePanorama('Bo');
+}
+
+function chclickinfospotBpp0(){ 
+ChangePanorama('Bp');
+}
+
+function chclickinfospotBpp1(){ 
+ChangePanorama('Bj');
+}
+
+function chclickinfospotBpp2(){ 
+ChangePanorama('Bg');
+}
+
+function chclickinfospotBpp3(){ 
+ChangePanorama('Bdd');
+}
+
+function chclickinfospotBq0(){ 
+ChangePanorama('Bk');
+}
+
+function chclickinfospotBq1(){ 
+ChangePanorama('Br');
+}
+
+function chclickinfospotBr0(){ 
+ChangePanorama('Bs');
+}
+
+function chclickinfospotBr1(){ 
+ChangePanorama('Bq');
+}
+
+function chclickinfospotBr2(){ 
+ChangePanorama('By');
+}
+
+function chclickinfospotBs0(){ 
+ChangePanorama('Bt');
+}
+
+function chclickinfospotBs1(){ 
+ChangePanorama('Br');
+}
+
+function chclickinfospotBt0(){ 
+ChangePanorama('Bu');
+}
+
+function chclickinfospotBt1(){ 
+ChangePanorama('Bs');
+}
+
+function chclickinfospotBu0(){ 
+ChangePanorama('Bv');
+}
+
+function chclickinfospotBu1(){ 
+ChangePanorama('Bt');
+}
+
+function chclickinfospotBv0(){ 
+ChangePanorama('Bw');
+}
+
+function chclickinfospotBv1(){ 
+ChangePanorama('Bu');
+}
+
+function chclickinfospotBw0(){ 
+ChangePanorama('Bx');
+}
+
+function chclickinfospotBw1(){ 
+ChangePanorama('Bv');
+}
+
+function chclickinfospotBw2(){ 
+ChangePanorama('As');
+}
+
+function chclickinfospotBx0(){ 
+ChangePanorama('By');
+}
+
+function chclickinfospotBx1(){ 
+ChangePanorama('Bw');
+}
+
+function chclickinfospotBx2(){ 
+ChangePanorama('As');
+}
+
+function chclickinfospotBy0(){ 
+ChangePanorama('Br');
+}
+
+function chclickinfospotBy1(){ 
+ChangePanorama('Bx');
+}
+/*customjs-end*/
+        </script>
+	</body>
+</html>
